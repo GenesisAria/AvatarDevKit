@@ -1,4 +1,4 @@
 # Avatar Devepolment Kit
-Development Kit for VRChat - utilities, shaders, resources
+Aria's Avatar Development Kit for VRChat - utilities, shaders, resources
 
 wip
