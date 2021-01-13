@@ -5,7 +5,7 @@ Shader "Sprites-Options"
     Properties
     {
         [Enum(UnityEngine.Rendering.CullMode)]_Culling("Culling (off is doublesided)", Int) = 2
-	[Enum(UnityEngine.Rendering.CompareFunction)][Space(5)]_ZTestMode("ZTestMode (default LEqual)", Float) = 5
+	[Enum(UnityEngine.Rendering.CompareFunction)][Space(5)]_ZTestMode("ZTestMode (default LEqual)", Float) = 4
 	_OffsetFactor ("Z-Offset", Float) = 0
 	[Space(5)]_MainTex ("Sprite Texture", 2D) = "white" {}
         _Color ("Tint", Color) = (1,1,1,1)
