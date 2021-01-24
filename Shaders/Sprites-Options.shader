@@ -8,7 +8,7 @@ Shader "Sprites-Options"
 	[Enum(UnityEngine.Rendering.CompareFunction)][Space(5)]_ZTestMode("ZTestMode (default LEqual)", Float) = 4
 	_OffsetFactor ("Z-Offset", Float) = 0
 	[Space(5)]_MainTex ("Sprite Texture", 2D) = "white" {}
-        _Color ("Tint", Color) = (1,1,1,1)
+        [HDR]_Color ("Tint", Color) = (1,1,1,1)
 	[Toggle][Space (5)]_AlphaToCoverage("AlphaToCoverage (override alpha)", Float) = 1
 	_Cutoff("Alpha Cutoff", Float) = 0
         [Toggle]PixelSnap ("Pixel snap", Float) = 0
