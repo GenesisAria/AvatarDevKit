@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b2425a2284af743826c689403a4924, type: 3}
+  m_Name: VR_ScreenSpaceUV
+  m_EditorClassIdentifier: 
+  m_functionInfo: "// Made with Amplify Shader Editor\n// Available at the Unity Asset
+    Store - http://u3d.as/y3X \n/*ASEBEGIN\nVersion=18713\n-1655;60;1552;820;1279.168;534.0357;1.204785;True;False\nNode;AmplifyShaderEditor.BreakToComponentsNode;83;-992,48;Inherit;False;FLOAT2;1;0;FLOAT2;0,0;False;16;FLOAT;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4;FLOAT;5;FLOAT;6;FLOAT;7;FLOAT;8;FLOAT;9;FLOAT;10;FLOAT;11;FLOAT;12;FLOAT;13;FLOAT;14;FLOAT;15\nNode;AmplifyShaderEditor.FunctionInput;97;-192,112;Inherit;False;Scale
+    X;1;0;False;1;0;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;98;-192,176;Inherit;False;Scale
+    Y;1;1;False;1;0;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;100;-16,272;Inherit;False;Pan
+    Y;1;3;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.DynamicAppendNode;102;160,208;Inherit;False;FLOAT2;4;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;96;112,0;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT2;1,1;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.SimpleAddOpNode;89;-48,0;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT2;0.5,0.5;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;88;-208,0;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT2;1,0.5;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.NegateNode;87;-368,0;Inherit;False;1;0;FLOAT2;0,0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.DynamicAppendNode;86;-544,0;Inherit;False;FLOAT2;4;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;85;-752,64;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;2;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;84;-768,-80;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.DynamicAppendNode;101;-64,112;Inherit;False;FLOAT2;4;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.FunctionInput;99;-16,208;Inherit;False;Pan
+    X;1;2;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleDivideOpNode;81;-1136,48;Inherit;False;2;0;FLOAT2;0,0;False;1;FLOAT;0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.ScreenParams;80;-1232,-240;Inherit;False;0;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4\nNode;AmplifyShaderEditor.ComponentMaskNode;79;-1408,96;Inherit;False;False;False;True;False;1;0;FLOAT4;0,0,0,0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.ComponentMaskNode;78;-1408,16;Inherit;False;True;True;False;False;1;0;FLOAT4;0,0,0,0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;77;-1648,16;Inherit;False;2;2;0;FLOAT4x4;0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1;False;1;FLOAT4;0,0,0,0;False;1;FLOAT4;0\nNode;AmplifyShaderEditor.DynamicAppendNode;76;-1808,48;Inherit;False;FLOAT4;4;0;FLOAT3;0,0,0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;1;FLOAT4;0\nNode;AmplifyShaderEditor.ViewMatrixNode;75;-1824,-80;Inherit;False;0;1;FLOAT4x4;0\nNode;AmplifyShaderEditor.SimpleSubtractOpNode;74;-1984,48;Inherit;False;2;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.WorldPosInputsNode;73;-2240,-16;Inherit;False;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3\nNode;AmplifyShaderEditor.CustomExpressionNode;72;-2176,128;Inherit;False;#if
+    defined(USING_STEREO_MATRICES) || defined(UNITY_SINGLE_PASS_STEREO)$float3 leftEye
+    = unity_StereoWorldSpaceCameraPos[0]@$float3 rightEye = unity_StereoWorldSpaceCameraPos[1]@$$float3
+    centerEye = lerp(leftEye, rightEye, 0.5)@$#else$float3 centerEye = _WorldSpaceCameraPos@$#endif$$return
+    centerEye@;3;False;0;Center Eye;True;False;0;0;1;FLOAT3;0\nNode;AmplifyShaderEditor.SimpleAddOpNode;95;256,0;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT2;0,0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.SimpleDivideOpNode;82;-992,-176;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionOutput;0;393.6984,2.151315;Inherit;False;True;-1;UV;0;False;1;0;FLOAT2;0,0;False;1;FLOAT2;0\nWireConnection;83;0;81;0\nWireConnection;102;0;99;0\nWireConnection;102;1;100;0\nWireConnection;96;0;89;0\nWireConnection;96;1;101;0\nWireConnection;89;0;88;0\nWireConnection;88;0;87;0\nWireConnection;87;0;86;0\nWireConnection;86;0;84;0\nWireConnection;86;1;85;0\nWireConnection;85;0;83;1\nWireConnection;84;0;82;0\nWireConnection;84;1;83;0\nWireConnection;101;0;97;0\nWireConnection;101;1;98;0\nWireConnection;81;0;78;0\nWireConnection;81;1;79;0\nWireConnection;79;0;77;0\nWireConnection;78;0;77;0\nWireConnection;77;0;75;0\nWireConnection;77;1;76;0\nWireConnection;76;0;74;0\nWireConnection;74;0;73;0\nWireConnection;74;1;72;0\nWireConnection;95;0;96;0\nWireConnection;95;1;102;0\nWireConnection;82;0;80;3\nWireConnection;82;1;80;4\nWireConnection;0;0;95;0\nASEEND*/\n//CHKSM=99F5808543D0E99DDC7F639C85B7BFD13705E8CF"
+  m_functionName: 
+  m_description: Generated Screenspace UV for VR Application
+  m_additionalIncludes:
+    m_additionalIncludes: []
+    m_outsideIncludes: []
+  m_additionalPragmas:
+    m_additionalPragmas: []
+    m_outsidePragmas: []
+  m_additionalDirectives:
+    m_validData: 0
+    m_isDirty: 0
+    m_moduleName: ' Additional Directives'
+    m_independentModule: 1
+    m_additionalDirectives: []
+    m_shaderFunctionDirectives: []
+    m_nativeDirectives: []
+    m_nativeDirectivesIndex: -1
+    m_nativeDirectivesFoldout: 0
+    m_directivesSaveItems: []
+  m_nodeCategory: 3
+  m_customNodeCategory: 
+  m_previewPosition: 0
+  m_hidden: 0
