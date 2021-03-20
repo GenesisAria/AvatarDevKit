@@ -3,8 +3,9 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -12,11 +13,11 @@ MonoBehaviour:
   m_Name: Blinn-Phong Half Vector VR
   m_EditorClassIdentifier: 
   m_functionInfo: "// Made with Amplify Shader Editor\n// Available at the Unity Asset
-    Store - http://u3d.as/y3X \n/*ASEBEGIN\nVersion=17500\n36;496;1868;878;1378.785;231.955;1;True;True\nNode;AmplifyShaderEditor.CustomExpressionNode;6;-855.285,-119.1217;Inherit;False;#if
+    Store - http://u3d.as/y3X \n/*ASEBEGIN\nVersion=18814\n-1635;27;1486;818;1632.785;442.955;1;True;False\nNode;AmplifyShaderEditor.SimpleSubtractOpNode;7;-711.285,-53.12166;Inherit;False;2;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.NormalizeNode;8;-567.285,-55.12166;Inherit;False;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.WorldPosInputsNode;9;-917.285,-45.12166;Inherit;False;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3\nNode;AmplifyShaderEditor.NormalizeNode;4;-176,0;Inherit;False;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.WorldSpaceLightDirHlpNode;2;-640,96;Inherit;False;True;1;0;FLOAT;0;False;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3\nNode;AmplifyShaderEditor.SimpleAddOpNode;3;-336,0;Inherit;False;2;2;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.FunctionNode;10;-924.785,-137.955;Inherit;False;VR_Center_Eye;-1;;1;c8866f5c3b9339443aaf9087a76ba9d4;2,13,1,14,0;0;2;FLOAT3;0;FLOAT3;2\nNode;AmplifyShaderEditor.CustomExpressionNode;6;-1035.285,-121.1217;Inherit;False;#if
     defined(USING_STEREO_MATRICES)$float3 leftEye = unity_StereoWorldSpaceCameraPos[0]@$float3
     rightEye = unity_StereoWorldSpaceCameraPos[1]@$$float3 centerEye = lerp(leftEye,
     rightEye, 0.5)@$#else$float3 centerEye = _WorldSpaceCameraPos@$#endif$$return
-    centerEye@;3;False;0;Center Eye;True;False;0;0;1;FLOAT3;0\nNode;AmplifyShaderEditor.SimpleSubtractOpNode;7;-711.285,-53.12166;Inherit;False;2;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.NormalizeNode;8;-567.285,-55.12166;Inherit;False;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.WorldPosInputsNode;9;-917.285,-45.12166;Inherit;False;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3\nNode;AmplifyShaderEditor.NormalizeNode;4;-176,0;Inherit;False;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.WorldSpaceLightDirHlpNode;2;-640,96;Inherit;False;True;1;0;FLOAT;0;False;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3\nNode;AmplifyShaderEditor.SimpleAddOpNode;3;-336,0;Inherit;False;2;2;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.FunctionOutput;0;0,0;Inherit;False;True;-1;XYZ;0;False;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0\nWireConnection;7;0;6;0\nWireConnection;7;1;9;0\nWireConnection;8;0;7;0\nWireConnection;4;0;3;0\nWireConnection;3;0;8;0\nWireConnection;3;1;2;0\nWireConnection;0;0;4;0\nASEEND*/\n//CHKSM=5682CB960DA4D093D6946C21155B9D5D7756ADA7"
+    centerEye@;3;False;0;Center Eye;True;False;0;0;1;FLOAT3;0\nNode;AmplifyShaderEditor.FunctionOutput;0;0,0;Inherit;False;True;-1;XYZ;0;False;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0\nWireConnection;7;0;10;0\nWireConnection;7;1;9;0\nWireConnection;8;0;7;0\nWireConnection;4;0;3;0\nWireConnection;3;0;8;0\nWireConnection;3;1;2;0\nWireConnection;0;0;4;0\nASEEND*/\n//CHKSM=966685D9DF14DE662233DB4853C529CF7426C68B"
   m_functionName: 
   m_description: Calculates the halfway vector between view direction and light direction
     in world space.
@@ -31,6 +32,7 @@ MonoBehaviour:
     m_isDirty: 0
     m_moduleName: ' Additional Directives'
     m_independentModule: 1
+    m_customEdited: 0
     m_additionalDirectives: []
     m_shaderFunctionDirectives: []
     m_nativeDirectives: []
