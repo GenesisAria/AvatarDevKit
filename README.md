@@ -51,4 +51,4 @@ Mirror system – a simple compare function to determine if the material is bein
 You are free to manipulate, extract from, and learn from my shader work as you please, and to this end, all shader functions and node graphs for Amplify Shader Editor are provided.  Note: some shaders will have dependant functions, needing their appropriate function nodes in order to use the graph without errors.
 
 ～
-Thanks to the great help of the people in the VRC Shader Development, and the Amplify Technology discords, as well as my friend Kilerbomb, in making some of the core systems of my shader work.
+Thanks to the great help of the people in the VRC Shader Development and Amplify Technology discords, as well as my friend Kilerbomb, in making some of the core systems of my shader work.
