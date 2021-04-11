@@ -46,12 +46,12 @@ Matcaps include option to use either [Xiexe's](https://github.com/Xiexe) world-u
 
 **Mirror system** – a simple compare function to determine if the material is being rendered in a camera or not, for which mirror renders do not flag as cameras.  Mostly a toy, though can be used to mitigate some mirror-specific issues by showing a separate material in the mirror.
 
-<br/ >
+<br />
 **※ This shader does not include variants for fade, transparent etc at this time.  Use the advanced -> debug section to override blend modes, or use alpha to coverage.**
-<br/ >
-<br/ >
+<br />
+<br />
 You are free to manipulate, extract from, and learn from my shader work as you please, and to this end, all shader functions and node graphs for Amplify Shader Editor are provided.  Note: some shaders will have dependant functions, needing their appropriate function nodes in order to use the graph without errors.
-<br/ >
-<br/ >
+<br />
+<br />
 ～
 Thanks to the great help of the people in the VRC Shader Development and Amplify Technology discords, as well as my friend Kilerbomb, in making some of the core systems of my shader work.
