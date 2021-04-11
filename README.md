@@ -26,7 +26,7 @@ Main texture – has hue and saturation adjustments, as well as a supersampled o
 Emission – goes without saying. Also includes an ability to include the shading into the emission to control it's brightness in light vs dark more finely.
 
 Normal map – has strength sliders for every aspect of the shader that uses normal maps.  I have also implemented an optional system for biasing the normal map's strength based on distance from the surface, to make them more visible at range (0=off).  Includes mask.\
-– Has supersampling system built using [Ben Golus's guide](https://bgolus.medium.com/sharper-mipmapping-using-shader-based-supersampling-ed7aadb47bec).  This is one of the more expensive aspects of this shader, use sparingly.
+– Has supersampling system built using [Ben Golus's guide](https://bgolus.medium.com/sharper-mipmapping-using-shader-based-supersampling-ed7aadb47bec).  This is most beneficial for normal maps with fine detail that alias heavily, supersampling can counteract this.  This is one of the more expensive aspects of this shader, use sparingly.
 
 Specularity – includes blinn-phong specular, and specular matcap, both can be set between additive or pre-multiplicative to incorporate the colour of the surface before adding.  Matcaps include option to use either [Xiexe's](https://github.com/Xiexe) world-up singularity system, or the legacy mode for UnityChanToonShader2's [view direction corrected version of traditional matcaps](https://twitter.com/kanihira/status/1061448868221480960), as well as a stereo-convergence option to “flatten” it to the surface instead of a shiny depth effect given in vr/3d.  Includes a mask for all specular.
 
