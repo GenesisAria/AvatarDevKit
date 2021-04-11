@@ -48,9 +48,9 @@ Matcaps include option to use either [Xiexe's](https://github.com/Xiexe) world-u
 
 
 **※ This shader does not include variants for fade, transparent etc at this time.  Use the advanced -> debug section to override blend modes, or use alpha to coverage.**
-
+\
 
 You are free to manipulate, extract from, and learn from my shader work as you please, and to this end, all shader functions and node graphs for Amplify Shader Editor are provided.  Note: some shaders will have dependant functions, needing their appropriate function nodes in order to use the graph without errors.
-
+\
 ～
 Thanks to the great help of the people in the VRC Shader Development and Amplify Technology discords, as well as my friend Kilerbomb, in making some of the core systems of my shader work.
