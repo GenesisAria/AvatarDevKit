@@ -11,7 +11,7 @@ There are some compromises made here, most apparent will be the incapability of 
 
 VRChat specific features:
 - force shader-blockage fallback to doublesided (cull off)
-- shader-blockage fallback visible or invisible (_cutoff=2)
+- shader-blockage fallback cutout visible or invisible (_cutoff=2)
 - friends-only system, allowing only friends to see or not see materials rendered (use in conjunction with fallback visibility if needed – requires a camera and low resolution rendertexture; make camera culling mask nothing and clear to solid colour white, minimize all settings for performance)
 
 
