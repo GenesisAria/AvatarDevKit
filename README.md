@@ -38,7 +38,7 @@ Glitter/Shimmer – because shiny things are awesome.  Has a semi-complex system
 Rim fresnel effect – can be used for rim lighting or rim darkening, includes multiple blend modes.
 
 Hard matcap – this is for strictly non-additive matcaps.  Has the ability to the matcap texture for effect.\
-Matcaps include option to use either [Xiexe's](https://github.com/Xiexe) world-up singularity system, or the legacy mode for UnityChanToonShader2's [view direction corrected version of traditional matcaps](https://twitter.com/kanihira/status/1061448868221480960), as well as a stereo-convergence option to “flatten” it to the surface instead of a shiny depth effect given in vr/3d.
+Matcaps include option to use either [Xiexe's](https://github.com/Xiexe) world-up singularity system, or the legacy mode for UnityChanToonShader2's [view direction corrected version of traditional matcaps](https://twitter.com/kanihira/status/1061448868221480960), as well as a stereo-convergence option to “flatten” it to the surface instead of a shiny depth effect given in vr/3d.  Includes mask.
 
 Parallax map – using a simple parallax for a single texture to make it appear closer or farther from the surface. Includes mask.
 
