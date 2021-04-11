@@ -8,7 +8,7 @@ Shader ".GenesisAria/Arias VertexLit Shader"
 		[HideInInspector]_outline_width("_outline_width", Float) = 0
 		[Toggle(TINTED_OUTLINE)][Space(10)]_VRCFallbackDoublesided("VRC Fallback Doublesided", Float) = 0
 		[Toggle(_ALPHATEST_ON)]_VRCFallbackCutout("VRC Fallback Cutout", Float) = 0
-		_Cutoff("Fallback Cutoff (2=invisible)", Float) = 0
+		_Cutoff("Fallback Cutoff (2=invisible)", Float) = 0.5
 		[Header(.  Main  .)]_MainTex("Texture (RGB,A)", 2D) = "white" {}
 		[ToggleUI]_TexSuperSample("SuperSample (expensive)", Float) = 0
 		_TexSSBias("SuperSample Bias", Float) = 0
