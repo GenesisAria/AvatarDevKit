@@ -6,7 +6,7 @@
 A quick informal rundown of features:
 
 – First off, the entire shader is **vextex-lit ONLY**.  This means there are no extra passes on the shader, notably reducing render cost, and allowing more control over the received light.
-There are some compromises made here, most apparent, will be the incapability of receiving cookied light data from spot and point light sources – a workaround is to use projectors instead.  The lighting will behave somewhat differently from a more standard lighting model, due to hacks needed in order to work with unity's, imperfect vertex lighting system.  I have also implemented some unique behaviours, such as rotation of shading proportionally based on the colour/intensity of light sources.\
+There are some compromises made here, most apparent will be the incapability of receiving cookied light data from spot and point light sources – a workaround is to use projectors instead.  The lighting will behave somewhat differently from a more standard lighting model, due to hacks needed in order to work with unity's, imperfect vertex lighting system.  I have also implemented some unique behaviours, such as rotation of shading proportionally based on the colour/intensity of light sources.\
 – This lighting system also consists of a number of configurable behaviours for control/limitation of received light and light saturation, which is beneficial for compensating for nonsensical lighting setups in open or semi-open development platforms such as VRChat.
 
 VRChat specific features:
@@ -48,7 +48,8 @@ Matcaps include option to use either [Xiexe's](https://github.com/Xiexe) world-u
 
 <br />
 
-**※ This shader does not include variants for fade, transparent etc at this time.  Use the advanced → debug section to override blend modes, or use alpha to coverage.**
+**※ This shader does not include variants for fade, transparent etc at this time.  Use the advanced → debug section to override blend modes, or use alpha to coverage.**\
+Uses <Fallback "Legacy Shaders/Transparent/Cutout/VertexLit"> for shadow casting and depth until i develop my own Shadowcaster.
 
 <br /><br />
 
