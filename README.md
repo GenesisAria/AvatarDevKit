@@ -7,7 +7,7 @@ A quick informal rundown of features:
 
 – First off, the entire shader is vextex-lit ONLY.  This means there are no extra passes on the shader, notably reducing render cost.
 There are some compromises made here, most apparent, will be the incapability of receiving cookied light data from spot and point light sources – a workaround is to use projectors instead.  The lighting will behave somewhat differently from a more standard lighting model, due to hacks needed in order to work with unity's, imperfect vertex lighting system.  I have also implemented some unique behaviours, such as rotation of shading proportionally based on the colour/intensity of light sources.\
-– This lighting system also consists of a number of configurable behaviours for control/limitation or received light, and light saturation, which is beneficial for compensating for nonsensical lighting setups in open or semi-open development platforms such as VRChat.
+– This lighting system also consists of a number of configurable behaviours for control/limitation of received light and light saturation, which is beneficial for compensating for nonsensical lighting setups in open or semi-open development platforms such as VRChat.
 
 VRChat specific features:
 - force shader-blockage fallback to doublesided (cull off)
@@ -29,6 +29,8 @@ Normal map – has strength sliders for every aspect of the shader that uses nor
 – Has supersampling system built using [Ben Golus's guide](https://bgolus.medium.com/sharper-mipmapping-using-shader-based-supersampling-ed7aadb47bec).  This is most beneficial for normal maps with fine detail that alias heavily, supersampling can counteract this.  This is one of the more expensive aspects of this shader, use sparingly.
 
 Specularity – includes blinn-phong specular, and specular matcap, both can be set between additive or pre-multiplicative to incorporate the colour of the surface before adding.  Matcaps include option to use either [Xiexe's](https://github.com/Xiexe) world-up singularity system, or the legacy mode for UnityChanToonShader2's [view direction corrected version of traditional matcaps](https://twitter.com/kanihira/status/1061448868221480960), as well as a stereo-convergence option to “flatten” it to the surface instead of a shiny depth effect given in vr/3d.  Includes a mask for all specular.
+
+Reflection probe – basic implementation of reflection probes.
 
 Fake subsurface light – uses negative view direction and normal direction to imitate the impression of subsurface scattering on standard render pipeline.  Behaves like a rimlight except only if the light source is opposite your view.
 
