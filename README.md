@@ -49,7 +49,7 @@ Matcaps include option to use either [Xiexe's](https://github.com/Xiexe) world-u
 <br />
 
 **※ This shader does not include variants for fade, transparent etc at this time.  Use the advanced → debug section to override blend modes, or use alpha to coverage.**\
-Uses <Fallback "Legacy Shaders/Transparent/Cutout/VertexLit"> for shadow casting and depth until i develop my own Shadowcaster.
+Uses `<Fallback "Legacy Shaders/Transparent/Cutout/VertexLit">` for shadow casting and depth until i develop my own Shadowcaster.
 
 <br /><br />
 
