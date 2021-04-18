@@ -1,1 +1,1 @@
-*.shader= linguist-language=HLSL
+*.shader linguist-language=HLSL
