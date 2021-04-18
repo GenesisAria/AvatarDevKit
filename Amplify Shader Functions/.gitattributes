@@ -1,2 +1,2 @@
 *.shader linguist-language=HLSL
-*.asset linguist-language=UnityAsset
+*.asset merge=unityyamlmerge eol=lf
