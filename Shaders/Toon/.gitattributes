@@ -1,6 +1,0 @@
-[attr]unityyaml -text merge=unityyamlmerge diff
-
-*.shader linguist-language=HLSL
-*.unity unityyaml
-*.asset unityyaml
-*.prefab unityyaml
