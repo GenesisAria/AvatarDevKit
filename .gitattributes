@@ -1,6 +1,14 @@
 [attr]unityyaml -text merge=unityyamlmerge diff
 
 *.shader linguist-language=HLSL
+
+*.mat merge=unityyamlmerge eol=lf
+*.unity merge=unityyamlmerge eol=lf
+*.asset merge=unityyamlmerge eol=lf
+*.prefab merge=unityyamlmerge eol=lf
+*.preset merge=unityyamlmerge eol=lf
+
+*.mat linguist-generated
 *.unity linguist-generated
 *.asset linguist-generated
 *.prefab linguist-generated
