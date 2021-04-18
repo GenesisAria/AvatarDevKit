@@ -1,2 +1,2 @@
-*.shader linguist-language=HLSL
-*.asset linguist-language=unityyaml
+*.shader HLSL
+*.unity unityyaml
