@@ -1,2 +1,4 @@
-*.shader HLSL
+*.shader linguist-language=HLSL
+*.unity unityyaml
 *.asset unityyaml
+*.prefab unityyaml
