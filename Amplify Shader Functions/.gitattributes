@@ -1,2 +1,2 @@
 *.shader linguist-language=HLSL
-*.asset linguist-language=Unity3D Asset
+*.asset linguist-language=Unity3D
