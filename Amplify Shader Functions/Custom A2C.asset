@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b2425a2284af743826c689403a4924, type: 3}
+  m_Name: Custom A2C
+  m_EditorClassIdentifier: 
+  m_functionInfo: "// Made with Amplify Shader Editor\n// Available at the Unity Asset
+    Store - http://u3d.as/y3X \n/*ASEBEGIN\nVersion=18906\n-1513;136;1456;748;1894.241;328.955;1;True;False\nNode;AmplifyShaderEditor.CommentaryNode;64;-787.8163,162.1036;Inherit;False;190;100;MSAA
+    Sample Count;1;4;;1,1,1,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;63;-708.5938,19.07806;Inherit;False;208;132;compensate
+    blocking?;1;47;;1,1,1,1;0;0\nNode;AmplifyShaderEditor.BreakToComponentsNode;8;-1160.556,69.66336;Inherit;False;FLOAT4;1;0;FLOAT4;0,0,0,0;False;16;FLOAT;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4;FLOAT;5;FLOAT;6;FLOAT;7;FLOAT;8;FLOAT;9;FLOAT;10;FLOAT;11;FLOAT;12;FLOAT;13;FLOAT;14;FLOAT;15\nNode;AmplifyShaderEditor.SimpleDivideOpNode;13;-1506.423,68.79358;Inherit;False;2;0;FLOAT4;0,0,0,0;False;1;FLOAT;0;False;1;FLOAT4;0\nNode;AmplifyShaderEditor.FmodOpNode;10;-996.5563,154.6633;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;8;False;1;FLOAT;0\nNode;AmplifyShaderEditor.ScreenPosInputsNode;12;-1703.423,63.79359;Inherit;False;1;False;0;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4\nNode;AmplifyShaderEditor.FmodOpNode;9;-996.5563,69.66336;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;8;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;3;-439.1578,-67.1041;Inherit;False;Alpha;1;1;False;1;0;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.CustomExpressionNode;4;-781.0891,195.0597;Half;False;uint
+    samplecount = GetRenderTargetSampleCount()@$return samplecount@;0;Create;0;Render
+    Sample Count;False;False;0;;False;0;1;INT;0\nNode;AmplifyShaderEditor.FunctionInput;19;-91.89771,-77.11252;Inherit;False;Toggle;1;0;False;1;0;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;17;-196.3286,47.56482;Inherit;False;2;2;0;FLOAT;0;False;1;INT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleDivideOpNode;7;-465.0893,64.05976;Inherit;False;2;0;FLOAT;1;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleDivideOpNode;15;-559.791,224.986;Inherit;False;2;0;INT;0;False;1;FLOAT;0.5;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleAddOpNode;5;-321.0892,44.05977;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.CustomExpressionNode;18;83.6714,-37.43518;Float;False;//
+    Shift and subtract to get the needed amount of positive bits$  if (covtoggle ==
+    1)${$cov = (1u << (uint)(finalAlpha)) - 1u@$finalAlpha = 1@$}$  if (covtoggle
+    == 0)${$cov = 0xFF@$finalAlpha = preFinalAlpha@$};7;Call;3;True;covtoggle;FLOAT;0;In;;Float;False;True;finalAlpha;FLOAT;0;InOut;;Float;False;True;preFinalAlpha;FLOAT;0;In;;Float;False;bits;False;False;0;;False;4;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;2;FLOAT;0;FLOAT;3\nNode;AmplifyShaderEditor.FunctionInput;16;-779.791,262.986;Inherit;False;AA
+    Sample Bias;1;2;False;1;0;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleSubtractOpNode;47;-653.5938,55.07806;Inherit;False;2;0;FLOAT;1;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.CustomExpressionNode;1;-1368.92,69.16737;Half;False;
+    \               #if UNITY_SINGLE_PASS_STEREO$                    screenuv.xy *=
+    half2(_ScreenParams.x * 2, _ScreenParams.y)@$                #else$                    screenuv.xy
+    *= _ScreenParams.xy@$                #endif$    $                return screenuv@;4;Create;1;True;screenuv;FLOAT4;0,0,0,0;In;;Inherit;False;Stereo
+    Screen UV;True;False;0;;False;1;0;FLOAT4;0,0,0,0;False;1;FLOAT4;0\nNode;AmplifyShaderEditor.CustomExpressionNode;11;-859.5651,70.6953;Half;False;const
+    half dither[64] = {$1, 49, 13, 61, 4, 52, 16, 64,$33, 17, 45, 29, 36, 20, 48,
+    32,$9, 57, 5, 53, 12, 60, 8, 56,$41, 25, 37, 21, 44, 28, 40, 24,$3, 51, 15, 63,
+    2, 50, 14, 62,$35, 19, 47, 31, 34, 18, 46, 30,$11, 59, 7, 55, 10, 58, 6, 54,$43,
+    27, 39, 23, 42, 26, 38, 22$                }@$int r = y * 8 + x@$return dither[r]
+    / 65@ // Use 65 instead of 64 to get better centering;1;Create;2;True;x;INT;0;In;;Half;False;True;y;INT;0;In;;Half;False;Dither8x8Bayer;False;False;0;;False;2;0;INT;0;False;1;INT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionOutput;0;354.7998,-13;Inherit;False;True;-1;Output;0;False;1;0;FLOAT;0;False;1;FLOAT;0\nWireConnection;8;0;1;0\nWireConnection;13;0;12;0\nWireConnection;13;1;12;4\nWireConnection;10;0;8;1\nWireConnection;9;0;8;0\nWireConnection;17;0;5;0\nWireConnection;17;1;4;0\nWireConnection;7;0;47;0\nWireConnection;7;1;15;0\nWireConnection;15;0;4;0\nWireConnection;15;1;16;0\nWireConnection;5;0;3;0\nWireConnection;5;1;7;0\nWireConnection;18;1;19;0\nWireConnection;18;2;17;0\nWireConnection;18;3;3;0\nWireConnection;47;1;11;0\nWireConnection;1;0;13;0\nWireConnection;11;0;9;0\nWireConnection;11;1;10;0\nWireConnection;0;0;18;3\nASEEND*/\n//CHKSM=8F1BF1E9D3BB77CAF1D4BA338A6D79BEEC6C967B"
+  m_functionName: 
+  m_description: 'Custom Alpha to Coverage dither gradient
+
+
+    thanks to lukis
+
+    https://github.com/lukis101/VRCUnityStuffs/blob/master/Shaders/DJL/A2C-Custom.shader'
+  m_additionalIncludes:
+    m_additionalIncludes: []
+    m_outsideIncludes: []
+  m_additionalPragmas:
+    m_additionalPragmas: []
+    m_outsidePragmas: []
+  m_additionalDirectives:
+    m_validData: 0
+    m_isDirty: 1
+    m_moduleName: ' Additional Directives'
+    m_independentModule: 1
+    m_customEdited: 0
+    m_additionalDirectives: []
+    m_shaderFunctionDirectives: []
+    m_nativeDirectives: []
+    m_nativeDirectivesIndex: -1
+    m_nativeDirectivesFoldout: 0
+    m_directivesSaveItems: []
+  m_nodeCategory: 3
+  m_customNodeCategory: 
+  m_previewPosition: 0
+  m_hidden: 0
