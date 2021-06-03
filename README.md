@@ -17,7 +17,7 @@ VRChat specific features:
 
 General features:
 
-**Alpha to coverage** – a very nice system for optimized transparency, which can dither the alpha channel in opaque materials in a way that can be anti-aliased to being less noticeable.  Now works the same on nVidia.
+**Alpha to coverage** – a very nice system for optimized transparency, which can dither the alpha channel in opaque materials in a way that can be anti-aliased to being less noticeable.  [Now works the same on nVidia, credit to lukis.](https://github.com/lukis101/VRCUnityStuffs/blob/master/Shaders/DJL/A2C-Custom.shader)
 
 **Shading** – uses a basic ramp created from the dot product of light direction (biased) and normals, with plenty of configurability.  Includes mask for lighting.  It also has a separate soft shading system which uses light and view directions to add definition.
 
