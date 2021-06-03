@@ -23,7 +23,7 @@ General features:
 
 **Main texture** – has hue and saturation adjustments, as well as a supersampled override for combatting aliasing, built using [Ben Golus's guide](https://bgolus.medium.com/sharper-mipmapping-using-shader-based-supersampling-ed7aadb47bec).  This is one of the more expensive aspects of this shader, use sparingly.
 
-**Emission** – goes without saying. Also includes an ability to include the shading into the emission to control it's brightness in light vs dark more finely.
+**Emission** – goes without saying. Also includes an ability to include the shading into the emission to control it's brightness in light vs dark more finely.  Also has the ability to change colours in the dark.
 
 **Normal map** – has strength sliders for every aspect of the shader that uses normal maps.  I have also implemented an optional system for biasing the normal map's strength based on distance from the surface, to make them more visible at range (0=off).  Includes mask.\
 – Has supersampling system built using [Ben Golus's guide](https://bgolus.medium.com/sharper-mipmapping-using-shader-based-supersampling-ed7aadb47bec).  This is most beneficial for normal maps with fine detail that alias heavily, supersampling can counteract this.  This is one of the more expensive aspects of this shader, use sparingly.
