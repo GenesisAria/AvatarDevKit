@@ -52,7 +52,7 @@ Allows for adjustment of ZWrite, ZTest and full control over the Stencil buffer.
 <br />
 
 **※ This shader does not include variants for fade, transparent etc at this time.  Use the advanced → debug section to override blend modes, or use alpha to coverage.**\
-SrcAlpha | OneMinusSrcAlpha = alpha blended, make render queue ～3000 for transparent materials.
+SrcAlpha | OneMinusSrcAlpha = alpha blended, make render queue ～3000 for transparent materials (2999 to avoid being affected some anti-particle shaders).
 
 Uses `Fallback "Legacy Shaders/Transparent/Cutout/VertexLit"` for shadow casting and depth until i develop my own Shadowcaster.
 
