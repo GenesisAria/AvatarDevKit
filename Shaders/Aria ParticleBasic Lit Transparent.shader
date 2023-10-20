@@ -20,7 +20,7 @@ Shader ".GenesisAria/Particle Basic Lit Transparent"
 		[Header(. Lighting .)]_LightMulti("Light Multiplier", Float) = 1
 		_MaxLight("Max Light (x2)", Range( 0 , 1)) = 0.5
 		_MinLight("Min Light", Range( 0 , 1)) = 0.01
-		[Header(. Lighting .)]_BakedMulti("Baked Multiplier", Float) = 1
+		_BakedMulti("Baked Multiplier", Float) = 1
 		_LightColourBias("LightColour Bias (keep white)", Color) = (1,1,1,0)
 		[Space(5)][Header(.  Shadow  .)][Toggle(SHADING_ON)] _UseShading("Use Shading", Float) = 0
 		[Space(5)]_ShadowColour("Shadow Colour", Color) = (0.85,0.85,0.85,1)
