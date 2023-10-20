@@ -47,7 +47,7 @@ Shader ".GenesisAria/Particle Basic Lit Transparent"
 	{
 		
 		
-		Tags { "RenderType"="Transparent" "Queue"="Transparent" "LightMode"="Vertex" }
+		Tags { "RenderType"="Transparent" "Queue"="Transparent" "LightMode"="ForwardBase" }
 	LOD 100
 
 		CGINCLUDE
