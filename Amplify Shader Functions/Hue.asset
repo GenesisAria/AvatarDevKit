@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78b2425a2284af743826c689403a4924, type: 3}
   m_Name: Hue
   m_EditorClassIdentifier: 
-  m_functionInfo: "// Made with Amplify Shader Editor\n// Available at the Unity Asset
-    Store - http://u3d.as/y3X \n/*ASEBEGIN\nVersion=18908\n164;220;1418;825;1172.794;220.1109;1;True;False\nNode;AmplifyShaderEditor.CustomExpressionNode;1;-280.7944,-0.1109314;Inherit;False;
-    \   float angle = radians(aHue)@$    float3 k = float3(0.57735, 0.57735, 0.57735)@$
-    \   float cosAngle = cos(angle)@$    //Rodrigues' rotation formula$    return
-    aColor * cosAngle + cross(k, aColor) * sin(angle) + k * dot(k, aColor) * (1 -
-    cosAngle)@;3;Create;2;True;aColor;FLOAT3;0,0,0;In;;Inherit;False;True;aHue;FLOAT;0;In;;Inherit;False;Hue
-    Shifter;True;False;0;;False;2;0;FLOAT3;0,0,0;False;1;FLOAT;0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.FunctionInput;2;-491.7944,26.88907;Inherit;False;Hue;1;1;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;3;-512.7944,-43.11093;Inherit;False;Colour;3;0;False;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.FunctionOutput;0;0,0;Inherit;False;True;-1;Output;0;False;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0\nWireConnection;1;0;3;0\nWireConnection;1;1;2;0\nWireConnection;0;0;1;0\nASEEND*/\n//CHKSM=9C4249D7FFE511565A466396C89BFFE8D7370393"
+  m_functionInfo: "// Made with Amplify Shader Editor v1.9.1.5\n// Available at the
+    Unity Asset Store - http://u3d.as/y3X \n/*ASEBEGIN\nVersion=19105\nNode;AmplifyShaderEditor.FunctionInput;3;-512.7944,-43.11093;Inherit;False;Colour;3;0;False;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.FunctionOutput;0;0,0;Inherit;True;True;-1;Output;0;False;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.ColorNode;4;-772.7939,-43.1109;Inherit;False;Constant;_Color0;Color
+    0;0;0;Create;True;0;0;0;False;0;False;1,0,0,0;0,0,0,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4\nNode;AmplifyShaderEditor.FunctionInput;2;-489.7944,26.88907;Inherit;False;Hue;1;1;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.CustomExpressionNode;1;-280.7944,-0.1109314;Inherit;False;   
+    float angle = radians(aHue)@$    float3 k = float3(0.57735, 0.57735, 0.57735)@$   
+    float cosAngle = cos(angle)@$    //Rodrigues' rotation formula$    return aColor
+    * cosAngle + cross(k, aColor) * sin(angle) + k * dot(k, aColor) * (1 - cosAngle)@;3;Create;2;True;aColor;FLOAT3;0,0,0;In;;Inherit;False;True;aHue;FLOAT;0;In;;Inherit;False;Hue
+    Shifter;True;False;0;;False;2;0;FLOAT3;0,0,0;False;1;FLOAT;0;False;1;FLOAT3;0\nWireConnection;3;0;4;0\nWireConnection;0;0;1;0\nWireConnection;1;0;3;0\nWireConnection;1;1;2;0\nASEEND*/\n//CHKSM=582014D5497E8251BBCEEB7DC8617B5CE89D3806"
   m_functionName: 
   m_description: 
   m_additionalIncludes:
@@ -40,6 +40,9 @@ MonoBehaviour:
     m_nativeDirectivesFoldout: 0
     m_directivesSaveItems: []
   m_nodeCategory: 3
+  m_headerStyle: 0
+  m_headerColor: {r: 1, g: 0.4, b: 0, a: 1}
   m_customNodeCategory: 
   m_previewPosition: 0
   m_hidden: 0
+  m_url: 
