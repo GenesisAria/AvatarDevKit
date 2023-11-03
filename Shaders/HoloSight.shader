@@ -71,8 +71,8 @@ Shader ".GenesisAria/Arias HoloSight Transparent"
 		_ReadMask("ReadMask", Float) = 0
 		[Enum(UnityEngine.Rendering.CompareFunction)]_StencilComparison("Stencil Comparison", Int) = 0
 		[Enum(UnityEngine.Rendering.StencilOp)]_StencilOp("StencilOp", Int) = 0
-		[Enum(UnityEngine.Rendering.StencilOp)]_StencilFail("StencilFail", Int) = 0
-		[Enum(UnityEngine.Rendering.StencilOp)]_StencilZFail("StencilZFail", Int) = 0
+		[Enum(UnityEngine.Rendering.StencilOp)]_StencilFail("StencilFail", Int) = 255
+		[Enum(UnityEngine.Rendering.StencilOp)]_StencilZFail("StencilZFail", Int) = 255
 		[Enum(UnityEngine.Rendering.BlendMode)][Space(10)][Header(Debug)]_SrcBlend("Source Blend (One)", Float) = 1
 		[Enum(UnityEngine.Rendering.BlendMode)]_DstBlend("Destination Blend (Zero)", Float) = 10
 		[Enum(UnityEngine.Rendering.BlendOp)]_BlendOp("BlendOp", Float) = 0
