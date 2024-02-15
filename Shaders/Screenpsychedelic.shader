@@ -352,7 +352,7 @@ Shader ".GenesisAria/Screen psychedelic"
 				float temp_output_4_0_g7061 = distance( transform5_g7061 , float4( ( (float)1 == 0.0 ? localCenterEye1_g7062 : _WorldSpaceCameraPos ) , 0.0 ) );
 				float saferPower1144 = abs( temp_output_4_0_g7061 );
 				clip( _Opacity - 0.001);
-				float4 appendResult728 = (float4((lerpResult722).xyz , saturate( ( ( _DistanceFade * 40.0 ) - pow( saferPower1144 , 8.0 ) ) )));
+				float4 appendResult728 = (float4((lerpResult722).xyz , saturate( ( ( _DistanceFade * 5.0 ) - pow( saferPower1144 , 20.0 ) ) )));
 				
 				
 				finalColor = appendResult728;
@@ -544,10 +544,10 @@ Node;AmplifyShaderEditor.DynamicAppendNode;728;-68.0909,-11.59731;Inherit;False;
 Node;AmplifyShaderEditor.ClipNode;1134;-178.4675,90.375;Inherit;False;3;0;FLOAT;1;False;1;FLOAT;0;False;2;FLOAT;0.001;False;1;FLOAT;0
 Node;AmplifyShaderEditor.SaturateNode;1141;-317.4938,88.45111;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleSubtractOpNode;1143;-331.4938,223.4511;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.FunctionNode;1135;-740.4938,347.4511;Inherit;False;View Distance;-1;;7061;2a6ef75a50a2bd147a81c448d8de0d4d;2,8,1,17,0;1;9;INT;1;False;1;FLOAT;0
-Node;AmplifyShaderEditor.PowerNode;1144;-434.4938,342.4511;Inherit;False;True;2;0;FLOAT;0;False;1;FLOAT;8;False;1;FLOAT;0
-Node;AmplifyShaderEditor.SimpleMultiplyOpNode;1145;-462.4938,233.4511;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;40;False;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;1138;-624.4938,227.4511;Inherit;False;Property;_DistanceFade;Distance Fade;4;0;Create;True;0;0;0;False;0;False;20;0.5;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.FunctionNode;1135;-740.4938,347.4511;Inherit;False;View Distance;-1;;7061;2a6ef75a50a2bd147a81c448d8de0d4d;2,8,1,17,0;1;9;INT;1;False;1;FLOAT;0
+Node;AmplifyShaderEditor.SimpleMultiplyOpNode;1145;-462.4938,233.4511;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;5;False;1;FLOAT;0
+Node;AmplifyShaderEditor.PowerNode;1144;-434.4938,342.4511;Inherit;False;True;2;0;FLOAT;0;False;1;FLOAT;20;False;1;FLOAT;0
 WireConnection;622;0;619;0
 WireConnection;624;0;619;0
 WireConnection;655;0;637;0
@@ -735,7 +735,7 @@ WireConnection;1134;1;851;0
 WireConnection;1141;0;1143;0
 WireConnection;1143;0;1145;0
 WireConnection;1143;1;1144;0
-WireConnection;1144;0;1135;0
 WireConnection;1145;0;1138;0
+WireConnection;1144;0;1135;0
 ASEEND*/
-//CHKSM=601B6DA11955BA573CD250729A2068176F45F993
+//CHKSM=6413534915EC6D962C685F72312F5F74A2269601
