@@ -165,7 +165,7 @@ Shader ".GenesisAria/Arias VertexLit Shader"
 		_ReflectionPower("Reflection Power", Float) = 1
 		_ReflectionSaturation("Reflection Saturation", Float) = 1
 		_Aberration("Aberration", Float) = 0
-		[Header(Geometric Specular Antialiasing)][Toggle(_ENABLEGEOMETRICSPECULARAA)] _EnableGSAA("Enable GSAA", Float) = 0
+		[Header(Geometric Specular Antialiasing)][Toggle(_ENABLEGEOMETRICSPECULARAA)] _EnableGSAA("Enable GSAA (expensive)", Float) = 0
 		_GSAAVariance("ScreenVariance", Float) = 5
 		_GSAAPower("Power", Float) = 1
 		_GSAAThreshold("Threshold", Float) = 5
@@ -2416,7 +2416,7 @@ Node;AmplifyShaderEditor.SimpleMultiplyOpNode;3077;1886.551,166.584;Inherit;Fals
 Node;AmplifyShaderEditor.RangedFloatNode;369;-29.45917,-912.2149;Float;False;Property;_Scale;Rim Scale;202;0;Create;False;0;0;0;False;0;False;0;50;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;368;-36.0433,-838.2465;Float;False;Property;_Power;Rim Power;201;0;Create;False;0;0;0;False;0;False;0;10;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.WireNode;3647;-6576.113,-89.49232;Inherit;False;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0
-Node;AmplifyShaderEditor.ColorNode;376;258.5829,-1246.025;Float;False;Property;_RimOutlineColour;Rim/Outline Colour;198;0;Create;True;0;0;0;False;0;False;0,0,0,0;0.6544117,0.356074,0.448663,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ColorNode;376;258.5829,-1246.025;Float;False;Property;_RimOutlineColour;Rim/Outline Colour;198;0;Create;True;0;0;0;False;0;False;0,0,0,0;0.6544117,0.3560739,0.448663,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.RangedFloatNode;2300;291.2249,-822.2711;Float;False;Property;_Max;Rim Max;204;0;Create;False;0;0;0;False;0;False;0;1;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleAddOpNode;3796;2108.85,169.412;Inherit;False;2;2;0;FLOAT3;0,0,0;False;1;FLOAT3;0.0001,0.0001,0.0001;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.RangedFloatNode;2299;264.225,-903.2711;Float;False;Property;_Min;Rim Min;203;0;Create;False;0;0;0;False;0;False;0;0;0;0;0;1;FLOAT;0
@@ -3008,7 +3008,6 @@ Node;AmplifyShaderEditor.RegisterLocalVarNode;6018;-7321.49,-2049.758;Inherit;Fa
 Node;AmplifyShaderEditor.PowerNode;5456;-6936.844,-2653.121;Inherit;False;True;2;0;FLOAT;0;False;1;FLOAT;2;False;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;6163;-7212.462,-2408.767;Inherit;False;Property;_Float2;Float 2;232;0;Create;True;0;0;0;False;0;False;0;5;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleAddOpNode;6166;-7125.37,-2551.725;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.StaticSwitch;6164;-7012.383,-2554.133;Inherit;False;Property;_EnableGSAA;Enable GSAA;162;0;Create;True;0;0;0;True;1;Header(Geometric Specular Antialiasing);False;1;0;1;True;_ENABLEGEOMETRICSPECULARAA;Toggle;2;Key0;Key1;Create;False;False;All;9;1;FLOAT;0;False;0;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.GetLocalVarNode;6145;-7337.37,-2507.725;Inherit;False;6200;RoughnesslGSAA;1;0;OBJECT;;False;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;6015;-7035.82,-2029.012;Inherit;False;3;3;0;FLOAT3;0,0,0;False;1;FLOAT3;-0.025,-0.025,-0.025;False;2;FLOAT;0;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.RangedFloatNode;5247;-7584.72,-2621.292;Half;False;Property;_CubeSmoothnessOffset;Cube Smoothness Offset;155;0;Create;True;0;0;0;False;0;False;0;0;0;0;0;1;FLOAT;0
@@ -3157,6 +3156,7 @@ Node;AmplifyShaderEditor.SamplerNode;328;1511.872,-2136.573;Inherit;True;Propert
 Node;AmplifyShaderEditor.TexturePropertyNode;2957;-8565.2,720.9944;Inherit;True;Property;_Normal;Normal (N);61;1;[Normal];Create;False;0;0;0;False;2;Space(5);Header(.  NORMAL  .);False;None;None;True;bump;LockedToTexture2D;Texture2D;-1;0;2;SAMPLER2D;0;SAMPLERSTATE;1
 Node;AmplifyShaderEditor.RangedFloatNode;561;-6493.284,-4176.489;Half;False;Property;_SpecularOpacity;Specular Opacity;117;0;Create;True;0;0;0;False;2;Space(5);Header(.  SPECULAR  .);False;0.5;0.1;0;1;0;1;FLOAT;0
 Node;AmplifyShaderEditor.StaticSwitch;4916;2846.801,-811.9987;Inherit;False;Property;_UseMatcap;Use MatCap;208;0;Create;False;0;0;0;False;2;Space(10);Header(.  MATCAP  .);False;0;0;1;True;MATCAP_ON;Toggle;2;Key0;Key1;Create;True;False;All;9;1;FLOAT3;0,0,0;False;0;FLOAT3;0,0,0;False;2;FLOAT3;0,0,0;False;3;FLOAT3;0,0,0;False;4;FLOAT3;0,0,0;False;5;FLOAT3;0,0,0;False;6;FLOAT3;0,0,0;False;7;FLOAT3;0,0,0;False;8;FLOAT3;0,0,0;False;1;FLOAT3;0
+Node;AmplifyShaderEditor.StaticSwitch;6164;-7012.383,-2554.133;Inherit;False;Property;_EnableGSAA;Enable GSAA (expensive);162;0;Create;False;0;0;0;True;1;Header(Geometric Specular Antialiasing);False;1;0;1;True;_ENABLEGEOMETRICSPECULARAA;Toggle;2;Key0;Key1;Create;False;False;All;9;1;FLOAT;0;False;0;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;1;FLOAT;0
 WireConnection;3458;0;3838;0
 WireConnection;3458;2;3464;0
 WireConnection;4354;0;3458;0
@@ -4249,8 +4249,6 @@ WireConnection;6018;0;6017;0
 WireConnection;5456;0;5454;0
 WireConnection;6166;0;5456;0
 WireConnection;6166;1;6145;0
-WireConnection;6164;1;5456;0
-WireConnection;6164;0;6166;0
 WireConnection;6015;0;6014;0
 WireConnection;6015;2;6018;0
 WireConnection;4808;0;6103;0
@@ -4422,5 +4420,7 @@ WireConnection;4929;0;3500;0
 WireConnection;328;1;4891;0
 WireConnection;4916;1;5196;0
 WireConnection;4916;0;2163;0
+WireConnection;6164;1;5456;0
+WireConnection;6164;0;6166;0
 ASEEND*/
-//CHKSM=E2E5E7FCB21FBCDCF0D06FB35245A8C690F41EC6
+//CHKSM=CB2B7A702C66D980C38EAEBA092B3846371065F5
