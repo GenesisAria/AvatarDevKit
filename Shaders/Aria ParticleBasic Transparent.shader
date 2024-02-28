@@ -224,14 +224,14 @@ Shader ".GenesisAria/Particle Basic Transparent"
 				float desaturateDot49 = dot( desaturateInitialColor49, float3( 0.299, 0.587, 0.114 ));
 				float3 desaturateVar49 = lerp( desaturateInitialColor49, desaturateDot49.xxx, ( 1.0 - _TexSaturation ) );
 				float4 appendResult90 = (float4(desaturateVar49 , tex2DNode26.a));
-				float clampResult40_g6523 = clamp( ( _FlickerRate / 10000.0 ) , 0.0 , 3.0 );
-				float mulTime25_g6523 = _Time.y * ( 16666.0 * clampResult40_g6523 );
-				float mulTime28_g6523 = _Time.y * ( 5.0 * clampResult40_g6523 );
-				float temp_output_27_0_g6523 = i.ase_texcoord2.y;
-				float mulTime46_g6523 = _Time.y * ( 7.0 * clampResult40_g6523 );
-				float lerpResult4_g6523 = lerp( _FlickerMin , _FlickerMax , ( abs( sin( mulTime25_g6523 ) ) * pow( abs( sin( ( mulTime28_g6523 * temp_output_27_0_g6523 ) ) ) , 0.5 ) * pow( abs( sin( ( mulTime46_g6523 * ( 1.0 - temp_output_27_0_g6523 ) ) ) ) , 0.666 ) ));
+				float clampResult40_g6525 = clamp( ( _FlickerRate / 10000.0 ) , 0.0 , 3.0 );
+				float mulTime25_g6525 = _Time.y * ( 23333.0 * clampResult40_g6525 );
+				float mulTime28_g6525 = _Time.y * ( 5.0 * clampResult40_g6525 );
+				float temp_output_27_0_g6525 = i.ase_texcoord2.y;
+				float mulTime46_g6525 = _Time.y * ( 8.0 * clampResult40_g6525 );
+				float lerpResult4_g6525 = lerp( _FlickerMin , _FlickerMax , ( abs( sin( mulTime25_g6525 ) ) * pow( abs( sin( ( mulTime28_g6525 * temp_output_27_0_g6525 ) ) ) , 0.5 ) * pow( abs( sin( ( mulTime46_g6525 * ( 1.0 - temp_output_27_0_g6525 ) ) ) ) , 0.666 ) ));
 				#ifdef _AGEVERTEXSTREAM_ON
-				float staticSwitch631 = lerpResult4_g6523;
+				float staticSwitch631 = lerpResult4_g6525;
 				#else
 				float staticSwitch631 = 1.0;
 				#endif
@@ -287,7 +287,7 @@ Node;AmplifyShaderEditor.ComponentMaskNode;480;-526.0339,-604.6619;Inherit;False
 Node;AmplifyShaderEditor.ProjectionParams;592;-1709.362,-57.00345;Inherit;False;0;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.PowerNode;486;72.7944,-628.3953;Inherit;False;True;2;0;FLOAT3;0,0,0;False;1;FLOAT;1;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.SimpleSubtractOpNode;594;-1134.643,-116.908;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;620;108.878,-712.8517;Inherit;False;Property;_TexMultiply;Tex Multiply;11;0;Create;True;0;0;0;False;0;False;1;20;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;620;108.878,-712.8517;Inherit;False;Property;_TexMultiply;Tex Multiply;11;0;Create;True;0;0;0;False;0;False;1;100;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.TFHCGrayscale;489;-503.4199,-402.6243;Inherit;False;2;1;0;FLOAT3;0,0,0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.ComponentMaskNode;478;-511.0339,-496.6619;Inherit;False;False;False;False;True;1;0;FLOAT4;0,0,0,0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;618;23.51807,-464.7974;Inherit;False;Property;_DistanceMax;Distance Max;18;0;Create;True;0;0;0;False;0;False;100;100;0;0;0;1;FLOAT;0
@@ -388,7 +388,7 @@ Node;AmplifyShaderEditor.RangedFloatNode;658;-1624.593,-205.1421;Inherit;False;P
 Node;AmplifyShaderEditor.RangedFloatNode;659;-1622.593,-135.1421;Inherit;False;Property;_FlickerMax;Flicker Max;16;0;Create;True;0;0;0;False;0;False;2;1;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;633;-1089.46,-343.7158;Inherit;False;Constant;_Float1;Float 1;34;0;Create;True;0;0;0;False;0;False;1;0;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.TexCoordVertexDataNode;621;-1667.756,-456.6463;Inherit;False;1;4;0;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.FunctionNode;660;-1301.593,-260.1421;Inherit;False;BasicNoise;-1;;6523;ef92c0a5598ecff4d8c85ab9e80031fd;0;4;35;FLOAT;1;False;27;FLOAT;0;False;5;FLOAT;0;False;3;FLOAT;1;False;1;FLOAT;12
+Node;AmplifyShaderEditor.FunctionNode;662;-1301.593,-260.1421;Inherit;False;BasicNoise;-1;;6525;ef92c0a5598ecff4d8c85ab9e80031fd;0;4;35;FLOAT;1;False;27;FLOAT;0;False;5;FLOAT;0;False;3;FLOAT;1;False;1;FLOAT;12
 WireConnection;51;0;50;0
 WireConnection;49;0;26;0
 WireConnection;49;1;51;0
@@ -497,12 +497,12 @@ WireConnection;499;0;132;0
 WireConnection;614;1;619;0
 WireConnection;614;0;612;0
 WireConnection;631;1;633;0
-WireConnection;631;0;660;12
+WireConnection;631;0;662;12
 WireConnection;492;1;131;0
 WireConnection;492;0;83;0
-WireConnection;660;35;638;0
-WireConnection;660;27;621;2
-WireConnection;660;5;658;0
-WireConnection;660;3;659;0
+WireConnection;662;35;638;0
+WireConnection;662;27;621;2
+WireConnection;662;5;658;0
+WireConnection;662;3;659;0
 ASEEND*/
-//CHKSM=872B53E872649064FFC18A3B8ADDB9CA779F81BD
+//CHKSM=050E633D2EF286CA4C5257A9306F5EAAACCD19FA
