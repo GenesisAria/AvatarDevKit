@@ -434,15 +434,12 @@ Node;AmplifyShaderEditor.DynamicAppendNode;178;-1464.436,1676.312;Inherit;False;
 Node;AmplifyShaderEditor.DynamicAppendNode;177;-1519.088,1338.096;Inherit;False;FLOAT4;4;0;FLOAT3;0,0,0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;1;False;1;FLOAT4;0
 Node;AmplifyShaderEditor.RangedFloatNode;6;-491.1099,-585.2118;Float;False;Property;_ZWriteMode;ZWrite (write to depth buffer);1;1;[ToggleUI];Create;False;0;0;0;True;0;False;0;0;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;5;-494.1809,-497.1484;Float;False;Property;_ZTestMode;ZTestMode (LEqual);2;1;[Enum];Create;False;0;7;Less;0;Greater;1;LEqual;2;GEqual;3;Equal;4;NotEqual;5;Always;6;1;UnityEngine.Rendering.CompareFunction;True;1;Space(5);False;4;4;0;0;0;1;FLOAT;0
-Node;AmplifyShaderEditor.IntNode;12;-189.092,-504.5441;Inherit;False;Property;_Culling;Culling (off is doublesided);0;1;[Enum];Create;False;0;0;1;UnityEngine.Rendering.CullMode;True;0;False;0;0;False;0;1;INT;0
 Node;AmplifyShaderEditor.RangedFloatNode;9;-452.6278,-407.8238;Float;False;Property;_Offset;Offset;3;0;Create;True;0;7;Less;0;Greater;1;LEqual;2;GEqual;3;Equal;4;NotEqual;5;Always;6;1;UnityEngine.Rendering.CompareFunction;True;1;Space(5);False;0;0;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;16;-231.7586,-411.079;Inherit;False;Property;_AlphaToCoverage;AlphaToCoverage (override alpha);21;1;[ToggleUI];Create;False;0;0;0;True;1;Space (5);False;0;0;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;15;284.3811,-596.09;Half;False;Property;_StencilRef;Stencil ID;30;0;Create;False;0;0;0;True;2;Space(5);Header(Stencil);False;0;0;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.IntNode;13;582.5266,-596.282;Inherit;False;Property;_StencilComparison;Stencil Comparison;33;1;[Enum];Create;True;0;0;1;UnityEngine.Rendering.CompareFunction;True;0;False;0;0;False;0;1;INT;0
 Node;AmplifyShaderEditor.RangedFloatNode;8;277.201,-510.1007;Half;False;Property;_ReadMask;ReadMask;32;0;Create;False;0;0;0;True;0;False;255;255;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;14;276.201,-427.5238;Half;False;Property;_WriteMask;WriteMask;31;0;Create;False;0;0;0;True;0;False;255;255;0;0;0;1;FLOAT;0
-Node;AmplifyShaderEditor.IntNode;10;603.5277,-451.2818;Inherit;False;Property;_StencilFail;StencilFail;35;1;[Enum];Create;True;0;0;1;UnityEngine.Rendering.StencilOp;True;0;False;0;0;False;0;1;INT;0
-Node;AmplifyShaderEditor.IntNode;17;607.2396,-524.6238;Inherit;False;Property;_StencilOp;StencilOp;34;1;[Enum];Create;True;0;0;1;UnityEngine.Rendering.StencilOp;True;0;False;0;0;False;0;1;INT;0
 Node;AmplifyShaderEditor.IntNode;7;602.5277,-376.2819;Inherit;False;Property;_StencilZFail;StencilZFail;36;1;[Enum];Create;True;0;0;1;UnityEngine.Rendering.StencilOp;True;0;False;0;0;False;0;1;INT;0
 Node;AmplifyShaderEditor.RangedFloatNode;3;295.6882,-215.0115;Inherit;False;Property;_SrcBlend;Source Blend (SrcAlpha);28;1;[Enum];Create;False;0;1;Option1;0;1;UnityEngine.Rendering.BlendMode;True;2;Space(10);Header(.  Advanced  .);False;1;5;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;4;558.2366,-213.4415;Inherit;False;Property;_DstBlend;Destination Blend (OneMinusSrcAlpha);29;1;[Enum];Create;False;0;0;1;UnityEngine.Rendering.BlendMode;True;0;False;10;10;0;0;0;1;FLOAT;0
@@ -482,7 +479,10 @@ Node;AmplifyShaderEditor.NormalizeNode;203;-3411.787,592.1539;Inherit;True;False
 Node;AmplifyShaderEditor.ClampOpNode;204;-3204.926,380.4977;Inherit;False;3;0;FLOAT;0;False;1;FLOAT;1E-05;False;2;FLOAT;1.99999;False;1;FLOAT;0
 Node;AmplifyShaderEditor.ConditionalIfNode;205;-2974.241,363.3547;Inherit;False;False;5;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT3;0,0,0;False;3;FLOAT3;0,0,0;False;4;FLOAT3;0,0,0;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.LerpOp;153;-1617.313,154.3941;Inherit;False;3;0;COLOR;0,0,1,0;False;1;COLOR;0,0,1,0;False;2;FLOAT;0;False;1;COLOR;0
-Node;AmplifyShaderEditor.RangedFloatNode;206;-109.6455,-627.3197;Half;False;Property;_Cutoff;Fallback Cutoff;4;1;[HideInInspector];Create;False;0;0;0;True;0;False;2;0.5;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;206;-109.6455,-627.3197;Half;False;Property;_Cutoff;Fallback Cutoff;4;1;[HideInInspector];Create;False;0;0;0;True;0;False;2;2;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.IntNode;10;603.5277,-451.2818;Inherit;False;Property;_StencilFail;StencilFail;35;1;[Enum];Create;True;0;0;1;UnityEngine.Rendering.StencilOp;True;0;False;0;0;False;0;1;INT;0
+Node;AmplifyShaderEditor.IntNode;17;607.2396,-524.6238;Inherit;False;Property;_StencilOp;StencilOp;34;1;[Enum];Create;True;0;0;1;UnityEngine.Rendering.StencilOp;True;0;False;0;0;False;0;1;INT;0
+Node;AmplifyShaderEditor.IntNode;12;-189.092,-504.5441;Inherit;False;Property;_Culling;Culling (off is doublesided);0;1;[Enum];Create;False;0;0;1;UnityEngine.Rendering.CullMode;True;0;False;0;0;False;0;1;INT;0
 WireConnection;21;0;18;0
 WireConnection;52;0;49;3
 WireConnection;52;1;49;4
@@ -619,4 +619,4 @@ WireConnection;205;4;202;0
 WireConnection;153;1;36;0
 WireConnection;153;2;151;0
 ASEEND*/
-//CHKSM=D6F2E73723B55E21989491B5C800E1C2DACE2840
+//CHKSM=881655EBBD57DDBCA441C52736BAED168A0C4EFE
