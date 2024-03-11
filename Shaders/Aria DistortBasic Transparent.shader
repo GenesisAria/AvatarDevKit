@@ -247,9 +247,8 @@ Shader ".GenesisAria/DistortBasic Transparent"
 				float4 screenPos = i.ase_texcoord1;
 				float4 ase_grabScreenPos = ASE_ComputeGrabScreenPos( screenPos );
 				float4 ase_grabScreenPosNorm = ase_grabScreenPos / ase_grabScreenPos.w;
-				float4 transform5_g7061 = mul(unity_ObjectToWorld,float4( 0,0,0,1 ));
 				float3 localCenterEye1_g7062 = CenterEye1_g7062();
-				float temp_output_4_0_g7061 = distance( transform5_g7061 , float4( ( (float)1 == 0.0 ? localCenterEye1_g7062 : _WorldSpaceCameraPos ) , 0.0 ) );
+				float temp_output_4_0_g7061 = distance( WorldPosition , ( (float)1 == 0.0 ? localCenterEye1_g7062 : _WorldSpaceCameraPos ) );
 				float saferPower164 = abs( saturate( ( 1.0 - (0.0 + (temp_output_4_0_g7061 - 0.0) * (1.0 - 0.0) / (_DistanceFade - 0.0)) ) ) );
 				float temp_output_164_0 = pow( saferPower164 , _DistanceFalloff );
 				float temp_output_147_0 = ( _DistanceFade == 0.0 ? 1.0 : temp_output_164_0 );
@@ -401,7 +400,6 @@ Node;AmplifyShaderEditor.WireNode;135;438.9707,457.2929;Inherit;False;1;0;FLOAT;
 Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;41;787.0394,82.10645;Float;False;True;-1;2;ASEMaterialInspector;100;5;.GenesisAria/DistortBasic Transparent;0770190933193b94aaa3065e307002fa;True;Unlit;0;0;Unlit;2;True;True;1;1;True;_SrcBlend;0;True;_DstBlend;0;1;False;;0;False;;True;0;False;;0;False;;False;False;False;False;False;False;False;False;False;True;0;False;;True;True;0;True;_Culling;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;False;True;True;255;True;_StencilRef;255;True;_ReadMask;255;True;_WriteMask;7;True;_StencilComparison;1;True;_StencilOp;1;True;_StencilFail;1;True;_StencilZFail;7;False;;1;False;;1;False;;1;False;;False;True;2;True;_ZWriteMode;True;3;True;_ZTestMode;True;False;0;False;;0;False;;True;2;RenderType=Opaque=RenderType;Queue=Overlay=Queue=28767;True;6;False;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;0;;0;0;Standard;1;Vertex Position,InvertActionOnDeselection;1;0;0;1;True;False;;False;0
 Node;AmplifyShaderEditor.DynamicAppendNode;63;475.1733,82.44327;Inherit;False;FLOAT4;4;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;1;FLOAT4;0
 Node;AmplifyShaderEditor.ClipNode;175;616.3397,81.50348;Inherit;False;3;0;FLOAT4;0,0,0,0;False;1;FLOAT;0;False;2;FLOAT;0.001;False;1;FLOAT4;0
-Node;AmplifyShaderEditor.FunctionNode;165;-2223.224,63.23304;Inherit;False;View Distance;-1;;7061;2a6ef75a50a2bd147a81c448d8de0d4d;2,8,1,17,0;1;9;INT;1;False;1;FLOAT;0
 Node;AmplifyShaderEditor.TFHCRemapNode;172;-1756.109,9.080879;Inherit;False;5;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;1;False;3;FLOAT;0;False;4;FLOAT;1;False;1;FLOAT;0
 Node;AmplifyShaderEditor.OneMinusNode;173;-1575.131,9.461983;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.PowerNode;164;-1307.524,10.86182;Inherit;False;True;2;0;FLOAT;0;False;1;FLOAT;20;False;1;FLOAT;0
@@ -413,6 +411,7 @@ Node;AmplifyShaderEditor.CeilOpNode;178;-870.2308,-159.0202;Inherit;False;1;0;FL
 Node;AmplifyShaderEditor.WireNode;180;551.6568,-74.96343;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;181;524.147,-270.0457;Half;False;Property;_Cutoff;Fallback Cutoff;5;1;[HideInInspector];Create;False;0;0;0;True;0;False;2;2;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;183;563.4182,-495.2255;Half;False;Property;_VRCFallbackCutout;VRC Fallback Cutout;3;0;Create;True;0;0;0;True;1;Toggle(_ALPHATEST_ON);False;0;0;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.FunctionNode;165;-2223.224,63.23304;Inherit;False;View Distance;-1;;7061;2a6ef75a50a2bd147a81c448d8de0d4d;2,8,0,17,0;1;9;INT;1;False;1;FLOAT;0
 WireConnection;110;0;114;0
 WireConnection;100;0;95;0
 WireConnection;97;0;100;0
@@ -498,4 +497,4 @@ WireConnection;147;3;164;0
 WireConnection;178;0;147;0
 WireConnection;180;0;178;0
 ASEEND*/
-//CHKSM=A3762CFF83D2B2CAAE2F7D73E383A0323F1DDB5E
+//CHKSM=403230EF00C3B5933E2FE2FE0E599653ED3EF083
