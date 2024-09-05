@@ -89,13 +89,13 @@ Shader ".GenesisAria/Arias VertexLit Shader"
 		[ToggleUI]_DetailNormalFlip("Flip Axes", Float) = 0
 		[KeywordEnum(UV1,UV2)] _DetailNormUV("DetailNormal UV", Float) = 0
 		[Header(Normal Mask)][SingleLineTexture]_NormalMask("NormalMask, Shademask", 2D) = "white" {}
-		[Enum(R,0,G,1,B,2,A,3)]_NormMaskEnum("Normal Mask Channel", Int) = 0
+		[Enum(R,0,G,1,B,2,A,3)]_NormMaskEnum("Channel", Int) = 0
 		_NormMaskLevel("Normal Mask Level", Float) = 1
 		_NormMaskPow("Normal Mask Power", Float) = 1
 		[ToggleUI]_NormalMaskInvert("Normal Mask Invert", Float) = 0
 		[KeywordEnum(UV1,UV2)] _MaskUV("Mask UV", Float) = 0
 		[ToggleUI]_LightMaskEnable("Use Light Mask", Float) = 0
-		[Enum(R,0,G,1,B,2,A,3)]_ShadeMaskEnum("Shade Mask Channel", Int) = 3
+		[Enum(R,0,G,1,B,2,A,3)]_ShadeMaskEnum("Channel", Int) = 3
 		[ToggleUI]_LightMaskOnly("Light Mask Only (for alpha8)", Float) = 0
 		_LightMaskLevel("Light Mask Level", Float) = 1
 		[Space(5)][Header(.  Soft Shading  .)][ToggleOff(SOFTSHADE_OFF)] _SoftShadeEnable("SoftShade Enable", Float) = 0
