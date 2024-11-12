@@ -495,8 +495,6 @@ Shader ".GenesisAria/litSample"
 				float dotResult48 = dot( worldNormal46 , temp_output_130_0 );
 				float lerpResult155 = lerp( _shadowmin , _shadowmax , saturate( dotResult48 ));
 				float2 uv_MainTex = IN.ase_texcoord9.xy * _MainTex_ST.xy + _MainTex_ST.zw;
-				float3 temp_output_50_0 = ( temp_output_117_0 * lerpResult155 * tex2D( _MainTex, uv_MainTex ).rgb );
-				float2 uv_Emission = IN.ase_texcoord9.xy * _Emission_ST.xy + _Emission_ST.zw;
 				float temp_output_26_0_g1872 = distance( worldPos , _WorldSpaceCameraPos );
 				float temp_output_14_0_g1872 = ( ( ( temp_output_26_0_g1872 * 1.2 ) * unity_FogParams.z ) + unity_FogParams.w );
 				float temp_output_7_0_g1872 = ( pow( saturate( ( -temp_output_14_0_g1872 + ( unity_FogParams.w * 0.333 ) ) ) , 0.75 ) * 5.0 );
@@ -514,7 +512,10 @@ Shader ".GenesisAria/litSample"
 				float expfalloff153_g1869 = break227_g1869.y;
 				float exp2falloff153_g1869 = break227_g1869.z;
 				float localcheckfog2153_g1869 = checkfog2153_g1869( linearfalloff153_g1869 , expfalloff153_g1869 , exp2falloff153_g1869 );
-				float4 tex2DNode196 = tex2Dbias( _Emission, float4( uv_Emission, 0, localcheckfog2153_g1869) );
+				float temp_output_1805_100 = localcheckfog2153_g1869;
+				float3 temp_output_50_0 = ( temp_output_117_0 * lerpResult155 * tex2Dbias( _MainTex, float4( uv_MainTex, 0, temp_output_1805_100) ).rgb );
+				float2 uv_Emission = IN.ase_texcoord9.xy * _Emission_ST.xy + _Emission_ST.zw;
+				float4 tex2DNode196 = tex2Dbias( _Emission, float4( uv_Emission, 0, temp_output_1805_100) );
 				float3 tanNormal101 = tex2DNode99.rgb;
 				float3 worldNormal101 = normalize( float3(dot(tanToWorld0,tanNormal101), dot(tanToWorld1,tanNormal101), dot(tanToWorld2,tanNormal101)) );
 				float3 localCenterEye1_g335 = CenterEye1_g335();
@@ -1024,8 +1025,6 @@ Shader ".GenesisAria/litSample"
 				float dotResult48 = dot( worldNormal46 , temp_output_130_0 );
 				float lerpResult155 = lerp( _shadowmin , _shadowmax , saturate( dotResult48 ));
 				float2 uv_MainTex = IN.ase_texcoord9.xy * _MainTex_ST.xy + _MainTex_ST.zw;
-				float3 temp_output_50_0 = ( temp_output_117_0 * lerpResult155 * tex2D( _MainTex, uv_MainTex ).rgb );
-				float2 uv_Emission = IN.ase_texcoord9.xy * _Emission_ST.xy + _Emission_ST.zw;
 				float temp_output_26_0_g1872 = distance( worldPos , _WorldSpaceCameraPos );
 				float temp_output_14_0_g1872 = ( ( ( temp_output_26_0_g1872 * 1.2 ) * unity_FogParams.z ) + unity_FogParams.w );
 				float temp_output_7_0_g1872 = ( pow( saturate( ( -temp_output_14_0_g1872 + ( unity_FogParams.w * 0.333 ) ) ) , 0.75 ) * 5.0 );
@@ -1043,7 +1042,10 @@ Shader ".GenesisAria/litSample"
 				float expfalloff153_g1869 = break227_g1869.y;
 				float exp2falloff153_g1869 = break227_g1869.z;
 				float localcheckfog2153_g1869 = checkfog2153_g1869( linearfalloff153_g1869 , expfalloff153_g1869 , exp2falloff153_g1869 );
-				float4 tex2DNode196 = tex2Dbias( _Emission, float4( uv_Emission, 0, localcheckfog2153_g1869) );
+				float temp_output_1805_100 = localcheckfog2153_g1869;
+				float3 temp_output_50_0 = ( temp_output_117_0 * lerpResult155 * tex2Dbias( _MainTex, float4( uv_MainTex, 0, temp_output_1805_100) ).rgb );
+				float2 uv_Emission = IN.ase_texcoord9.xy * _Emission_ST.xy + _Emission_ST.zw;
+				float4 tex2DNode196 = tex2Dbias( _Emission, float4( uv_Emission, 0, temp_output_1805_100) );
 				float3 tanNormal101 = tex2DNode99.rgb;
 				float3 worldNormal101 = normalize( float3(dot(tanToWorld0,tanNormal101), dot(tanToWorld1,tanNormal101), dot(tanToWorld2,tanNormal101)) );
 				float3 localCenterEye1_g335 = CenterEye1_g335();
@@ -1451,7 +1453,6 @@ Node;AmplifyShaderEditor.RangedFloatNode;156;-1428.909,-25.55775;Inherit;False;P
 Node;AmplifyShaderEditor.SimpleMaxOpNode;111;-1040.356,500.0255;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.RegisterLocalVarNode;1662;-1724.063,-593.4561;Inherit;False;mips;-1;True;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.LerpOp;155;-1210.966,-66.38963;Inherit;False;3;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.SamplerNode;1;-1095.889,130.6538;Inherit;True;Property;_MainTex;MainTex;4;0;Create;True;0;0;0;False;0;False;-1;None;6811e768f025438438197b9cc8dec0ff;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;6;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4;FLOAT3;5
 Node;AmplifyShaderEditor.DynamicAppendNode;108;-941.1107,497.7811;Inherit;False;FLOAT3;4;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.TextureCoordinatesNode;287;-1380.033,-729.243;Inherit;False;0;196;2;3;2;SAMPLER2D;;False;0;FLOAT2;1,1;False;1;FLOAT2;0,0;False;5;FLOAT2;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;286;-772.1732,503.1622;Inherit;False;2;2;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;1;FLOAT3;0
@@ -1496,6 +1497,7 @@ Node;AmplifyShaderEditor.FunctionNode;1805;-1409.782,-601.0931;Inherit;False;Cus
 Node;AmplifyShaderEditor.FunctionNode;1806;-27.55889,-400.878;Inherit;False;Custom Fog;-1;;1870;e871e07024334ec489278aed51708e6d;2,160,0,162,0;6;226;FLOAT3;0,0,0;False;10;FLOAT3;0,0,0;False;8;FLOAT3;0,0,0;False;33;FLOAT3;0,0,0;False;165;FLOAT2;0,0;False;182;FLOAT2;0,0;False;2;FLOAT3;0;FLOAT;100
 Node;AmplifyShaderEditor.FunctionNode;1807;-0.6655672,-58.08591;Inherit;False;Custom Fog;-1;;1871;e871e07024334ec489278aed51708e6d;2,160,0,162,0;6;226;FLOAT3;0,0,0;False;10;FLOAT3;0,0,0;False;8;FLOAT3;0,0,0;False;33;FLOAT3;0,0,0;False;165;FLOAT2;0,0;False;182;FLOAT2;0,0;False;2;FLOAT3;0;FLOAT;100
 Node;AmplifyShaderEditor.FunctionNode;1808;-1964.971,-670.3171;Inherit;False;Custom Fog Falloffs;-1;;1872;4eca9e52d1b3593439bec7b0035da53d;0;0;3;FLOAT2;30;FLOAT2;145;FLOAT3;0
+Node;AmplifyShaderEditor.SamplerNode;1;-1095.889,130.6538;Inherit;True;Property;_MainTex;MainTex;4;0;Create;True;0;0;0;False;0;False;-1;None;6811e768f025438438197b9cc8dec0ff;True;0;False;white;Auto;False;Object;-1;MipBias;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;6;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4;FLOAT3;5
 Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;92;307.8708,-8.561799;Float;False;False;-1;2;ASEMaterialInspector;100;16;New Amplify Shader;0721e9cadcde0cf47b2fccdd529f0a88;True;ShadowCaster;0;2;ShadowCaster;1;False;True;0;1;False;;0;False;;0;1;False;;0;False;;True;0;False;;0;False;;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;1;RenderType=Transparent=RenderType;True;2;False;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;True;1;False;;True;3;False;;False;True;1;LightMode=ShadowCaster;False;False;0;;0;0;Standard;0;False;0
 Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;89;308.1851,-302.5368;Float;False;True;-1;2;ASEMaterialInspector;100;16;.GenesisAria/litSample;0721e9cadcde0cf47b2fccdd529f0a88;True;ForwardBase;0;0;ForwardBase;10;True;True;1;1;True;_SrcBlend;0;True;_DstBlend;0;1;False;;0;False;;True;0;True;_BlendOp;0;False;;False;False;False;False;False;False;False;False;False;True;0;False;;True;True;0;True;_Culling;True;True;True;True;True;True;0;True;_ColorMask;False;False;False;False;False;False;True;True;True;0;True;_StencilRef;255;True;_ReadMask;255;True;_WriteMask;0;True;_StencilComparison;0;True;_StencilOp;0;True;_StencilFail;0;True;_StencilZFail;0;False;;0;False;;0;False;;0;False;;True;True;1;True;_ZWriteMode;True;3;True;_ZTestMode;True;False;0;False;;0;False;;True;1;RenderType=Transparent=RenderType;True;7;False;0;True;True;1;1;True;_SrcBlend;0;True;_DstBlend;0;1;False;;0;False;;False;False;False;False;False;False;False;False;False;False;False;True;False;False;False;False;False;False;False;False;False;False;False;True;True;1;True;_ZWriteMode;False;False;True;1;LightMode=ForwardBase;False;False;0;;0;0;Standard;20;  Dither Shadows;1;0;Cast Shadows;1;638669832959788589;  Use Shadow Threshold;0;0;Receive Shadows;1;638669832956345612;GPU Instancing;1;0;LOD CrossFade;1;0;Built-in Fog;0;638669400493484909;Ambient Light;1;0;Add Pass;1;638669822283370021;Override Baked GI;0;0;Tessellation;0;0;  Strength;0.5,False,;0;  Type;0;0;  Tess;16,False,;0;  Min;10,False,;0;  Max;25,False,;0;  Edge Length;16,False,;0;  Max Displacement;25,False,;0;Disable Batching;0;0;Vertex Position,InvertActionOnDeselection;1;0;0;3;True;True;True;False;;False;0
 Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;90;308.1851,-46.5368;Float;False;False;-1;2;ASEMaterialInspector;100;16;New Amplify Shader;0721e9cadcde0cf47b2fccdd529f0a88;True;ForwardAdd;0;1;ForwardAdd;0;False;True;0;1;False;;0;False;;0;1;False;;0;False;;True;0;False;;0;False;;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;1;RenderType=Transparent=RenderType;True;2;False;0;False;True;4;1;False;;1;False;;0;1;False;;0;False;;False;False;False;False;False;False;False;False;False;False;False;True;False;False;False;False;False;False;False;False;False;False;False;True;True;1;True;_ZWriteMode;False;False;True;1;LightMode=ForwardAdd;False;False;0;;0;0;Standard;0;False;0
@@ -1538,7 +1540,6 @@ WireConnection;1662;0;1808;0
 WireConnection;155;0;157;0
 WireConnection;155;1;156;0
 WireConnection;155;2;52;0
-WireConnection;1;1;131;0
 WireConnection;108;0;111;0
 WireConnection;108;1;111;0
 WireConnection;108;2;111;0
@@ -1577,6 +1578,8 @@ WireConnection;1807;8;1792;0
 WireConnection;1807;33;50;0
 WireConnection;1807;165;1803;0
 WireConnection;1807;182;1802;0
+WireConnection;1;1;131;0
+WireConnection;1;2;1805;100
 WireConnection;89;0;154;0
 ASEEND*/
-//CHKSM=A5550B1DBC4B2816F5A33F2DF3E858988D4C9A04
+//CHKSM=38948CA331DBE0053AC02C87468C3E1761E9CCEB
