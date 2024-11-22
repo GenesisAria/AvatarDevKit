@@ -88,7 +88,7 @@ Shader ".GenesisAria/LightCone"
 				#ifdef ASE_NEEDS_FRAG_WORLD_POSITION
 				float3 worldPos : TEXCOORD0;
 				#endif
-				centroid float4 worldNorm : TEXCOORD1;
+				centroid float4 worldNorm : TEXCOORD1_centroid;
 				float4 ase_texcoord2 : TEXCOORD2;
 				float4 ase_texcoord3 : TEXCOORD3;
 				UNITY_VERTEX_INPUT_INSTANCE_ID
@@ -258,7 +258,7 @@ Shader ".GenesisAria/LightCone"
 				#ifdef ASE_NEEDS_FRAG_WORLD_POSITION
 				float3 worldPos : TEXCOORD0;
 				#endif
-				centroid float4 worldNorm : TEXCOORD1;
+				centroid float4 worldNorm : TEXCOORD1_centroid;
 				float4 ase_texcoord2 : TEXCOORD2;
 				float4 ase_texcoord3 : TEXCOORD3;
 				UNITY_VERTEX_INPUT_INSTANCE_ID
