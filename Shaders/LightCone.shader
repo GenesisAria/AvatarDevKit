@@ -29,6 +29,7 @@ Shader ".GenesisAria/LightCone"
 		_ShaftNoise("Shaft Noise", 2D) = "white" {}
 		_ShaftsFade("Shafts Fade", Float) = 0
 		_ShaftsStrength("Shafts Strength", Float) = 0
+		[Header(Geometric Specular Antialiasing)][Space(5)][Toggle(_CENTROIDNORMAL)] _CentroidAA("Enable Centroid GSAA", Float) = 1
 
 	}
 	
@@ -72,12 +73,14 @@ Shader ".GenesisAria/LightCone"
 			#include "UnityStandardBRDF.cginc"
 			#include "UnityShaderVariables.cginc"
 			#define ASE_NEEDS_FRAG_WORLD_POSITION
+			#pragma shader_feature_local _CENTROIDNORMAL
 
 
 			struct appdata
 			{
 				float4 vertex : POSITION;
 				float4 color : COLOR;
+				float3 ase_normal : NORMAL;
 				float4 ase_texcoord : TEXCOORD0;
 				UNITY_VERTEX_INPUT_INSTANCE_ID
 			};
@@ -156,6 +159,7 @@ Shader ".GenesisAria/LightCone"
 				
 				//setting value to unused interpolator channels and avoid initialization warnings
 				o.ase_texcoord3.zw = 0;
+				float3 ase_worldNormal = UnityObjectToWorldNormal(v.ase_normal);
 				o.worldNormal.xyz = ase_worldNormal;
 				
 				float3 vertexValue = float3(0, 0, 0);
@@ -248,12 +252,14 @@ Shader ".GenesisAria/LightCone"
 			#include "UnityStandardBRDF.cginc"
 			#include "UnityShaderVariables.cginc"
 			#define ASE_NEEDS_FRAG_WORLD_POSITION
+			#pragma shader_feature_local _CENTROIDNORMAL
 
 
 			struct appdata
 			{
 				float4 vertex : POSITION;
 				float4 color : COLOR;
+				float3 ase_normal : NORMAL;
 				float4 ase_texcoord : TEXCOORD0;
 				UNITY_VERTEX_INPUT_INSTANCE_ID
 			};
@@ -332,6 +338,7 @@ Shader ".GenesisAria/LightCone"
 				
 				//setting value to unused interpolator channels and avoid initialization warnings
 				o.ase_texcoord3.zw = 0;
+				float3 ase_worldNormal = UnityObjectToWorldNormal(v.ase_normal);
 				o.worldNormal.xyz = ase_worldNormal;
 				
 				float3 vertexValue = float3(0, 0, 0);
@@ -426,8 +433,8 @@ Node;AmplifyShaderEditor.DynamicAppendNode;212;-2224.089,1279.387;Inherit;False;
 Node;AmplifyShaderEditor.LerpOp;145;-2020.569,582.2836;Inherit;False;3;0;FLOAT;0;False;1;FLOAT;1;False;2;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.DotProductOpNode;184;-2171.953,351.1508;Inherit;False;2;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.PannerNode;200;-2047.93,1296.469;Inherit;False;3;0;FLOAT2;0,0;False;2;FLOAT2;1,1;False;1;FLOAT;1;False;1;FLOAT2;0
-Node;AmplifyShaderEditor.WorldNormalVector;59;-2297.033,-0.6914185;Inherit;False;True;1;0;FLOAT3;0,0,1;False;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3
 Node;AmplifyShaderEditor.TexCoordVertexDataNode;50;-1794.676,-144.2532;Inherit;False;0;2;0;5;FLOAT2;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.WorldNormalVector;59;-2297.033,-0.6914185;Inherit;False;True;1;0;FLOAT3;0,0,1;False;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3
 Node;AmplifyShaderEditor.TexturePropertyNode;198;-2066.08,976.1807;Inherit;True;Property;_ShaftNoise;Shaft Noise;22;0;Create;True;0;0;0;False;0;False;None;401a1085158217b4d9e8a16432d854a7;False;white;Auto;Texture2D;-1;0;2;SAMPLER2D;0;SAMPLERSTATE;1
 Node;AmplifyShaderEditor.PannerNode;196;-2040.456,1171.557;Inherit;False;3;0;FLOAT2;0,0;False;2;FLOAT2;1,1;False;1;FLOAT;1;False;1;FLOAT2;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;211;-1857.892,1290.063;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT2;1.5,1.5;False;1;FLOAT2;0
@@ -496,7 +503,8 @@ Node;AmplifyShaderEditor.RangedFloatNode;17;335.8403,-343.6368;Float;False;Prope
 Node;AmplifyShaderEditor.RangedFloatNode;167;-15.83338,-256.0078;Half;False;Property;_ColorMask;Alpha Render (Colour Mask);19;2;[Header];[Enum];Create;False;1;default required for transparent camera;2;Mirror Fixed;14;Default;15;0;True;0;False;15;15;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.PowerNode;129;-1644.454,814.6882;Inherit;False;True;2;0;FLOAT;0;False;1;FLOAT;1;False;1;FLOAT;0
 Node;AmplifyShaderEditor.DynamicAppendNode;24;24.91964,124.1646;Inherit;False;COLOR;4;0;FLOAT3;0,0,0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;1;False;1;COLOR;0
-Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;88;245.1699,18.50999;Float;False;True;-1;2;ASEMaterialInspector;100;15;.GenesisAria/LightCone;2428b84746a063643a1a7e4ba658ff7b;True;Unlit;0;0;Unlit;2;True;True;1;0;True;_SrcBlend;0;True;_DstBlend;0;1;False;;0;False;;True;0;True;_BlendOp;0;False;;False;False;False;False;False;False;False;False;False;True;0;False;;True;True;1;False;;True;True;True;True;True;True;0;True;_ColorMask;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;True;True;1;True;_ZWriteMode;True;3;True;_ZTestMode;True;False;0;False;;0;False;;True;2;RenderType=Transparent=RenderType;Queue=Transparent=Queue=-3000;True;6;False;0;False;False;False;False;False;False;False;False;False;False;False;False;False;True;True;0;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;0;;0;0;Standard;1;Vertex Position,InvertActionOnDeselection;1;0;0;2;True;True;False;;False;0
+Node;AmplifyShaderEditor.StaticSwitch;216;380.6167,-693.6231;Inherit;False;Property;_CentroidAA;Enable Centroid GSAA;25;0;Create;False;0;0;0;True;2;Header(Geometric Specular Antialiasing);Space(5);False;0;1;0;True;_CENTROIDNORMAL;Toggle;2;Key0;Key1;Create;True;False;All;9;1;FLOAT;0;False;0;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;88;245.1699,18.50999;Float;False;True;-1;2;ASEMaterialInspector;100;15;.GenesisAria/LightCone;2428b84746a063643a1a7e4ba658ff7b;True;Unlit;0;0;Unlit;2;True;True;1;0;True;_SrcBlend;0;True;_DstBlend;0;1;False;;0;False;;True;0;True;_BlendOp;0;False;;False;False;False;False;False;False;False;False;False;True;0;False;;True;True;1;False;;True;True;True;True;True;True;0;True;_ColorMask;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;True;True;1;True;_ZWriteMode;True;3;True;_ZTestMode;True;False;0;False;;0;False;;True;2;RenderType=Transparent=RenderType;Queue=Transparent=Queue=-3000;True;6;False;0;False;False;False;False;False;False;False;False;False;False;False;False;False;True;True;0;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;0;;0;0;Standard;1;Vertex Position,InvertActionOnDeselection;1;638678648815607387;0;2;True;True;False;;False;0
 Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;89;249.9,130.7;Float;False;False;-1;2;ASEMaterialInspector;100;15;New Amplify Shader;2428b84746a063643a1a7e4ba658ff7b;True;Second;0;1;Second;2;False;True;0;1;False;;0;False;;0;1;False;;0;False;;True;0;False;;0;False;;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;1;False;;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;1;RenderType=Transparent=RenderType;True;2;False;0;False;False;False;False;False;False;False;False;False;False;False;False;False;True;True;1;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;0;;0;0;Standard;0;False;0
 WireConnection;215;0;194;0
 WireConnection;213;0;197;0
@@ -577,4 +585,4 @@ WireConnection;24;3;176;0
 WireConnection;88;0;24;0
 WireConnection;89;0;24;0
 ASEEND*/
-//CHKSM=935264E1C31601CF2D2E6F1D13C1664C8F837048
+//CHKSM=8851027966F977D857CDA5363791F64CA654F0A9
