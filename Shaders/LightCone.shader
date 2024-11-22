@@ -88,7 +88,11 @@ Shader ".GenesisAria/LightCone"
 				#ifdef ASE_NEEDS_FRAG_WORLD_POSITION
 				float3 worldPos : TEXCOORD0;
 				#endif
-				centroid float4 worldNorm : TEXCOORD1_centroid;
+				#if defined(_CENTROIDNORMAL)
+				centroid float3 worldNormal : TEXCOORD1_centroid;
+				#else
+				float3 worldNormal : TEXCOORD1;
+				#endif
 				float4 ase_texcoord2 : TEXCOORD2;
 				float4 ase_texcoord3 : TEXCOORD3;
 				UNITY_VERTEX_INPUT_INSTANCE_ID
@@ -152,6 +156,8 @@ Shader ".GenesisAria/LightCone"
 				
 				//setting value to unused interpolator channels and avoid initialization warnings
 				o.ase_texcoord3.zw = 0;
+				o.worldNormal.xyz = ase_worldNormal;
+				
 				float3 vertexValue = float3(0, 0, 0);
 				#if ASE_ABSOLUTE_VERTEX_POS
 				vertexValue = v.vertex.xyz;
@@ -178,7 +184,7 @@ Shader ".GenesisAria/LightCone"
 				#ifdef ASE_NEEDS_FRAG_WORLD_POSITION
 				float3 WorldPosition = i.worldPos;
 				#endif
-				float3 normalizedWorldNormal = normalize( i.worldNorm.xyzw.xyz );
+				float3 normalizedWorldNormal = normalize( i.worldNormal );
 				float3 lerpResult92 = lerp( normalizedWorldNormal , -normalizedWorldNormal , ase_vface);
 				float3 ase_worldViewDir = UnityWorldSpaceViewDir(WorldPosition);
 				ase_worldViewDir = Unity_SafeNormalize( ase_worldViewDir );
@@ -258,7 +264,11 @@ Shader ".GenesisAria/LightCone"
 				#ifdef ASE_NEEDS_FRAG_WORLD_POSITION
 				float3 worldPos : TEXCOORD0;
 				#endif
-				centroid float4 worldNorm : TEXCOORD1_centroid;
+				#if defined(_CENTROIDNORMAL)
+				centroid float3 worldNormal : TEXCOORD1_centroid;
+				#else
+				float3 worldNormal : TEXCOORD1;
+				#endif
 				float4 ase_texcoord2 : TEXCOORD2;
 				float4 ase_texcoord3 : TEXCOORD3;
 				UNITY_VERTEX_INPUT_INSTANCE_ID
@@ -322,6 +332,8 @@ Shader ".GenesisAria/LightCone"
 				
 				//setting value to unused interpolator channels and avoid initialization warnings
 				o.ase_texcoord3.zw = 0;
+				o.worldNormal.xyz = ase_worldNormal;
+				
 				float3 vertexValue = float3(0, 0, 0);
 				#if ASE_ABSOLUTE_VERTEX_POS
 				vertexValue = v.vertex.xyz;
@@ -348,7 +360,7 @@ Shader ".GenesisAria/LightCone"
 				#ifdef ASE_NEEDS_FRAG_WORLD_POSITION
 				float3 WorldPosition = i.worldPos;
 				#endif
-				float3 normalizedWorldNormal = normalize( i.worldNorm.xyzw.xyz );
+				float3 normalizedWorldNormal = normalize( i.worldNormal );
 				float3 lerpResult92 = lerp( normalizedWorldNormal , -normalizedWorldNormal , ase_vface);
 				float3 ase_worldViewDir = UnityWorldSpaceViewDir(WorldPosition);
 				ase_worldViewDir = Unity_SafeNormalize( ase_worldViewDir );
@@ -484,8 +496,8 @@ Node;AmplifyShaderEditor.RangedFloatNode;17;335.8403,-343.6368;Float;False;Prope
 Node;AmplifyShaderEditor.RangedFloatNode;167;-15.83338,-256.0078;Half;False;Property;_ColorMask;Alpha Render (Colour Mask);19;2;[Header];[Enum];Create;False;1;default required for transparent camera;2;Mirror Fixed;14;Default;15;0;True;0;False;15;15;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.PowerNode;129;-1644.454,814.6882;Inherit;False;True;2;0;FLOAT;0;False;1;FLOAT;1;False;1;FLOAT;0
 Node;AmplifyShaderEditor.DynamicAppendNode;24;24.91964,124.1646;Inherit;False;COLOR;4;0;FLOAT3;0,0,0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;1;False;1;COLOR;0
-Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;88;245.1699,18.50999;Float;False;True;-1;2;ASEMaterialInspector;100;13;.GenesisAria/LightCone;2428b84746a063643a1a7e4ba658ff7b;True;Unlit;0;0;Unlit;2;True;True;1;0;True;_SrcBlend;0;True;_DstBlend;0;1;False;;0;False;;True;0;True;_BlendOp;0;False;;False;False;False;False;False;False;False;False;False;True;0;False;;True;True;1;False;;True;True;True;True;True;True;0;True;_ColorMask;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;True;True;1;True;_ZWriteMode;True;3;True;_ZTestMode;True;False;0;False;;0;False;;True;2;RenderType=Transparent=RenderType;Queue=Transparent=Queue=-3000;True;6;False;0;False;False;False;False;False;False;False;False;False;False;False;False;False;True;True;0;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;0;;0;0;Standard;1;Vertex Position,InvertActionOnDeselection;1;0;0;2;True;True;False;;False;0
-Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;89;249.9,130.7;Float;False;False;-1;2;ASEMaterialInspector;100;13;New Amplify Shader;2428b84746a063643a1a7e4ba658ff7b;True;Second;0;1;Second;2;False;True;0;1;False;;0;False;;0;1;False;;0;False;;True;0;False;;0;False;;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;1;False;;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;1;RenderType=Transparent=RenderType;True;2;False;0;False;False;False;False;False;False;False;False;False;False;False;False;False;True;True;1;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;0;;0;0;Standard;0;False;0
+Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;88;245.1699,18.50999;Float;False;True;-1;2;ASEMaterialInspector;100;15;.GenesisAria/LightCone;2428b84746a063643a1a7e4ba658ff7b;True;Unlit;0;0;Unlit;2;True;True;1;0;True;_SrcBlend;0;True;_DstBlend;0;1;False;;0;False;;True;0;True;_BlendOp;0;False;;False;False;False;False;False;False;False;False;False;True;0;False;;True;True;1;False;;True;True;True;True;True;True;0;True;_ColorMask;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;True;True;1;True;_ZWriteMode;True;3;True;_ZTestMode;True;False;0;False;;0;False;;True;2;RenderType=Transparent=RenderType;Queue=Transparent=Queue=-3000;True;6;False;0;False;False;False;False;False;False;False;False;False;False;False;False;False;True;True;0;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;0;;0;0;Standard;1;Vertex Position,InvertActionOnDeselection;1;0;0;2;True;True;False;;False;0
+Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;89;249.9,130.7;Float;False;False;-1;2;ASEMaterialInspector;100;15;New Amplify Shader;2428b84746a063643a1a7e4ba658ff7b;True;Second;0;1;Second;2;False;True;0;1;False;;0;False;;0;1;False;;0;False;;True;0;False;;0;False;;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;1;False;;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;1;RenderType=Transparent=RenderType;True;2;False;0;False;False;False;False;False;False;False;False;False;False;False;False;False;True;True;1;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;0;;0;0;Standard;0;False;0
 WireConnection;215;0;194;0
 WireConnection;213;0;197;0
 WireConnection;144;0;148;0
@@ -565,4 +577,4 @@ WireConnection;24;3;176;0
 WireConnection;88;0;24;0
 WireConnection;89;0;24;0
 ASEEND*/
-//CHKSM=DBFBE3BE9C6CEFBE4B82058307949BD6CE519420
+//CHKSM=935264E1C31601CF2D2E6F1D13C1664C8F837048
