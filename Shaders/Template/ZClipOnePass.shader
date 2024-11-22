@@ -67,6 +67,8 @@ Shader /*ase_name*/ "Hidden/Templates/ZClipOnePass" /*end*/
 				UNITY_TRANSFER_INSTANCE_ID(v, o);
 
 				/*ase_vert_code:v=appdata;o=v2f*/
+				o.worldNormal.xyz = ase_worldNormal;
+
 				float3 vertexValue = float3(0, 0, 0);
 				#if ASE_ABSOLUTE_VERTEX_POS
 				vertexValue = v.vertex.xyz;
