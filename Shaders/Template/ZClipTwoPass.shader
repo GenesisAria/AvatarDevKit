@@ -51,8 +51,8 @@ Shader /*ase_name*/ "Hidden/Templates/ZClipTwoPass" /*end*/
 				#ifdef ASE_NEEDS_FRAG_WORLD_POSITION
 				float3 worldPos : TEXCOORD0;
 				#endif
-				centroid float4 worldNorm : TEXCOORD1;
-				/*ase_interp(2,):sp=sp.xyzw;wp=tc0;wn=tc1.xyzw*/
+				centroid float4 worldNorm : TEXCOORD1_centroid;
+				/*ase_interp(2,):sp=sp.xyzw;wp=tc0;wn=tc1*/
 				UNITY_VERTEX_INPUT_INSTANCE_ID
 				UNITY_VERTEX_OUTPUT_STEREO
 			};
@@ -133,8 +133,8 @@ Shader /*ase_name*/ "Hidden/Templates/ZClipTwoPass" /*end*/
 				#ifdef ASE_NEEDS_FRAG_WORLD_POSITION
 				float3 worldPos : TEXCOORD0;
 				#endif
-				centroid float4 worldNorm : TEXCOORD1;
-				/*ase_interp(2,):sp=sp.xyzw;wp=tc0;wn=tc1.xyzw*/
+				centroid float4 worldNorm : TEXCOORD1_centroid;
+				/*ase_interp(2,):sp=sp.xyzw;wp=tc0;wn=tc1*/
 				UNITY_VERTEX_INPUT_INSTANCE_ID
 				UNITY_VERTEX_OUTPUT_STEREO
 			};
