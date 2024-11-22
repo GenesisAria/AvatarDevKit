@@ -41,7 +41,8 @@ Shader /*ase_name*/ "Hidden/Templates/ZClipTwoPass" /*end*/
 			{
 				float4 vertex : POSITION;
 				float4 color : COLOR;
-				/*ase_vdata:p=p;c=c*/
+				float3 ase_normal : NORMAL;
+				/*ase_vdata:p=p;c=c;n=n*/
 				UNITY_VERTEX_INPUT_INSTANCE_ID
 			};
 			
@@ -51,7 +52,11 @@ Shader /*ase_name*/ "Hidden/Templates/ZClipTwoPass" /*end*/
 				#ifdef ASE_NEEDS_FRAG_WORLD_POSITION
 				float3 worldPos : TEXCOORD0;
 				#endif
-				centroid float4 worldNorm : TEXCOORD1_centroid;
+				#if defined(_CENTROIDNORMAL)
+				centroid float3 worldNormal : TEXCOORD1_centroid;
+				#else
+				float3 worldNormal : TEXCOORD1;
+				#endif
 				/*ase_interp(2,):sp=sp.xyzw;wp=tc0;wn=tc1*/
 				UNITY_VERTEX_INPUT_INSTANCE_ID
 				UNITY_VERTEX_OUTPUT_STEREO
@@ -67,8 +72,9 @@ Shader /*ase_name*/ "Hidden/Templates/ZClipTwoPass" /*end*/
 				UNITY_TRANSFER_INSTANCE_ID(v, o);
 
 				/*ase_vert_code:v=appdata;o=v2f*/
+				float3 ase_worldNormal = UnityObjectToWorldNormal(v.ase_normal);
 				o.worldNormal.xyz = ase_worldNormal;
-
+				
 				float3 vertexValue = float3(0, 0, 0);
 				#if ASE_ABSOLUTE_VERTEX_POS
 				vertexValue = v.vertex.xyz;
@@ -125,7 +131,8 @@ Shader /*ase_name*/ "Hidden/Templates/ZClipTwoPass" /*end*/
 			{
 				float4 vertex : POSITION;
 				float4 color : COLOR;
-				/*ase_vdata:p=p;c=c*/
+				float3 ase_normal : NORMAL;
+				/*ase_vdata:p=p;c=c;n=n*/
 				UNITY_VERTEX_INPUT_INSTANCE_ID
 			};
 			
@@ -135,7 +142,11 @@ Shader /*ase_name*/ "Hidden/Templates/ZClipTwoPass" /*end*/
 				#ifdef ASE_NEEDS_FRAG_WORLD_POSITION
 				float3 worldPos : TEXCOORD0;
 				#endif
-				centroid float4 worldNorm : TEXCOORD1_centroid;
+				#if defined(_CENTROIDNORMAL)
+				centroid float3 worldNormal : TEXCOORD1_centroid;
+				#else
+				float3 worldNormal : TEXCOORD1;
+				#endif
 				/*ase_interp(2,):sp=sp.xyzw;wp=tc0;wn=tc1*/
 				UNITY_VERTEX_INPUT_INSTANCE_ID
 				UNITY_VERTEX_OUTPUT_STEREO
@@ -151,8 +162,9 @@ Shader /*ase_name*/ "Hidden/Templates/ZClipTwoPass" /*end*/
 				UNITY_TRANSFER_INSTANCE_ID(v, o);
 
 				/*ase_vert_code:v=appdata;o=v2f*/
+				float3 ase_worldNormal = UnityObjectToWorldNormal(v.ase_normal);
 				o.worldNormal.xyz = ase_worldNormal;
-
+				
 				float3 vertexValue = float3(0, 0, 0);
 				#if ASE_ABSOLUTE_VERTEX_POS
 				vertexValue = v.vertex.xyz;
