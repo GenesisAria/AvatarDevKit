@@ -12,20 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78b2425a2284af743826c689403a4924, type: 3}
   m_Name: View Distance
   m_EditorClassIdentifier: 
-  m_functionInfo: "// Made with Amplify Shader Editor\n// Available at the Unity Asset
-    Store - http://u3d.as/y3X \n/*ASEBEGIN\nVersion=18814\n-1585;53;1544;856;1075.255;417.3462;1;True;False\nNode;AmplifyShaderEditor.DistanceOpNode;4;-186.269,-2.313965;Inherit;False;2;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.WorldPosInputsNode;3;-825.4849,-171.71;Inherit;False;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3\nNode;AmplifyShaderEditor.ObjectToWorldTransfNode;5;-839,-38.5;Inherit;False;1;0;FLOAT4;0,0,0,1;False;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4\nNode;AmplifyShaderEditor.FunctionInput;9;-840,120.5;Inherit;False;Stereo
-    Converge;0;0;False;1;0;INT;0;False;1;INT;0\nNode;AmplifyShaderEditor.Compare;10;-458,103.5;Inherit;False;0;4;0;INT;0;False;1;FLOAT;0;False;2;FLOAT3;0,0,0;False;3;FLOAT3;0,0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.WorldSpaceCameraPos;2;-901.2461,290.5229;Inherit;False;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3\nNode;AmplifyShaderEditor.FunctionNode;12;-833.2546,197.6538;Inherit;False;VR_Center_Eye;-1;;1;c8866f5c3b9339443aaf9087a76ba9d4;2,13,1,14,0;1;19;FLOAT3;0,0,0;False;2;FLOAT3;0;FLOAT3;2\nNode;AmplifyShaderEditor.CustomExpressionNode;13;-943.2546,209.6538;Inherit;False;#if
+  m_functionInfo: "// Made with Amplify Shader Editor v1.9.7.1\n// Available at the
+    Unity Asset Store - http://u3d.as/y3X \n/*ASEBEGIN\nVersion=19701\nNode;AmplifyShaderEditor.DistanceOpNode;4;-186.269,-2.313965;Inherit;False;2;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.WorldPosInputsNode;3;-825.4849,-171.71;Inherit;False;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3\nNode;AmplifyShaderEditor.ObjectToWorldTransfNode;5;-839,-38.5;Inherit;False;1;0;FLOAT4;0,0,0,1;False;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4\nNode;AmplifyShaderEditor.FunctionInput;9;-840,120.5;Inherit;False;Stereo
+    Converge;0;0;False;1;0;INT;0;False;1;INT;0\nNode;AmplifyShaderEditor.WorldSpaceCameraPos;2;-901.2461,290.5229;Inherit;False;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3\nNode;AmplifyShaderEditor.FunctionNode;12;-833.2546,197.6538;Inherit;False;VR_Center_Eye;-1;;1;c8866f5c3b9339443aaf9087a76ba9d4;2,13,1,14,0;1;19;FLOAT3;0,0,0;False;2;FLOAT3;0;FLOAT3;2\nNode;AmplifyShaderEditor.CustomExpressionNode;13;-943.2546,209.6538;Inherit;False;#if
     defined(USING_STEREO_MATRICES) || defined(UNITY_SINGLE_PASS_STEREO)$float3 leftEye
     = unity_StereoWorldSpaceCameraPos[0]@$float3 rightEye = unity_StereoWorldSpaceCameraPos[1]@$$float3
     centerEye = lerp(leftEye, rightEye, 0.5)@$#else$float3 centerEye = _WorldSpaceCameraPos@$#endif$$return
-    centerEye@;3;False;0;Center Eye;True;False;0;0;1;FLOAT3;0\nNode;AmplifyShaderEditor.FunctionSwitch;8;-508,-42.5;Inherit;False;Pos;False;0;2;-1;WorldPos;Object2World;Object;-1;9;0;FLOAT3;0,0,0;False;1;FLOAT4;0,0,0,0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.FunctionSwitch;17;114.745,-1.346191;Inherit;False;Mirror
-    Compensate;True;0;2;-1;;;Object;-1;9;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;16;-24.255,58.65381;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.Compare;15;-354.255,274.6538;Inherit;False;0;4;0;INT;0;False;1;FLOAT;0;False;2;FLOAT;0.5;False;3;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.OneMinusNode;18;-206.255,280.6538;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.CustomExpressionNode;14;-448.255,279.6538;Inherit;False;return
-    unity_CameraProjection[2][0] != 0.f || unity_CameraProjection[2][1] != 0.f@;0;False;0;isCamera;True;False;0;0;1;INT;0\nNode;AmplifyShaderEditor.FunctionOutput;0;364,4;Inherit;False;True;-1;Output;0;False;1;0;FLOAT;0;False;1;FLOAT;0\nWireConnection;4;0;8;0\nWireConnection;4;1;10;0\nWireConnection;10;0;9;0\nWireConnection;10;2;12;0\nWireConnection;10;3;2;0\nWireConnection;8;0;3;0\nWireConnection;8;1;5;0\nWireConnection;17;0;4;0\nWireConnection;17;1;16;0\nWireConnection;16;0;4;0\nWireConnection;16;1;18;0\nWireConnection;15;0;14;0\nWireConnection;18;0;15;0\nWireConnection;0;0;17;0\nASEEND*/\n//CHKSM=0F672043441A1F5B79D803A27F61EAD7742B8E71"
+    centerEye@;3;Create;0;Center Eye;True;False;0;;False;0;1;FLOAT3;0\nNode;AmplifyShaderEditor.FunctionSwitch;8;-508,-42.5;Inherit;False;Pos;False;0;2;-1;WorldPos;Object2World;Object;-1;10;0;FLOAT3;0,0,0;False;1;FLOAT4;0,0,0,0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;9;FLOAT;0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.FunctionSwitch;17;114.745,-1.346191;Inherit;False;Mirror
+    Compensate;True;0;2;-1;;;Object;-1;10;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;9;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;16;-24.255,58.65381;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.Compare;15;-354.255,274.6538;Inherit;False;0;4;0;INT;0;False;1;FLOAT;0;False;2;FLOAT;0.5;False;3;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.OneMinusNode;18;-206.255,280.6538;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.CustomExpressionNode;14;-454.7549,275.7538;Inherit;False;return
+    unity_CameraProjection[2][0] != 0.f || unity_CameraProjection[2][1] != 0.f@;0;Create;0;isCamera;True;False;0;;False;0;1;INT;0\nNode;AmplifyShaderEditor.Compare;10;-458,103.5;Inherit;False;0;4;0;INT;0;False;1;FLOAT;1;False;2;FLOAT3;0,0,0;False;3;FLOAT3;0,0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.FunctionOutput;0;364,4;Inherit;False;True;-1;Output;0;False;1;0;FLOAT;0;False;1;FLOAT;0\nWireConnection;4;0;8;0\nWireConnection;4;1;10;0\nWireConnection;8;0;3;0\nWireConnection;8;1;5;0\nWireConnection;17;0;4;0\nWireConnection;17;1;16;0\nWireConnection;16;0;4;0\nWireConnection;16;1;18;0\nWireConnection;15;0;14;0\nWireConnection;18;0;15;0\nWireConnection;10;0;9;0\nWireConnection;10;2;12;0\nWireConnection;10;3;2;0\nWireConnection;0;0;17;0\nASEEND*/\n//CHKSM=E350D19A946A1B0B1B4C7F1B2339EB2D3BA63BC8"
   m_functionName: 
   m_description: 'Distance to camera
 
 
-    Stereo Converge 0-1 for whether to use depth or centre eye.'
+    Stereo Converge 0-1 for whether to use
+    depth or centre eye.'
   m_additionalIncludes:
     m_additionalIncludes: []
     m_outsideIncludes: []
@@ -45,6 +46,9 @@ MonoBehaviour:
     m_nativeDirectivesFoldout: 0
     m_directivesSaveItems: []
   m_nodeCategory: 3
+  m_headerStyle: 2
+  m_headerColor: {r: 1, g: 0.39999998, b: 0.54999995, a: 1}
   m_customNodeCategory: 
   m_previewPosition: 0
   m_hidden: 0
+  m_url: 
