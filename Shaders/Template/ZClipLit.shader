@@ -464,11 +464,13 @@ Shader /*ase_name*/ "Hidden/Templates/ZClipLit" /*end*/
 
 
 				c.rgb += o.Emission;
-
+				
+				float4 finalcolor = (float4 (c.rgb,o.Alpha));
+				
 				#ifdef ASE_FOG
-					UNITY_APPLY_FOG(IN.fogCoord, c);
+					UNITY_APPLY_FOG(IN.fogCoord, finalcolor);
 				#endif
-				return c;
+				return finalcolor;
 			}
 			ENDCG
 		}
@@ -780,6 +782,8 @@ Shader /*ase_name*/ "Hidden/Templates/ZClipLit" /*end*/
 				o.Normal = worldN;
 
 				c.rgb += o.Albedo;
+				
+				c.rgb *= o.Alpha;
 
 				#ifdef ASE_FOG
 					UNITY_APPLY_FOG(IN.fogCoord, c);
